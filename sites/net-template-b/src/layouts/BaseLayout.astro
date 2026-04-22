@@ -1,0 +1,90 @@
+---
+import SeoHead from '../../../../shared/components/SeoHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  type = 'website',
+  publishedDate,
+} = Astro.props;
+
+const siteUrl = 'https://alaabadr.net';
+
+// JSON-LD @graph: Person + WebSite.
+// PodcastSeries/Episode intentionally omitted until real episodes ship
+// (per audit: fabricated structured data can trigger Google manual actions).
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${siteUrl}/#person`,
+    name: 'Alaa Badr',
+    url: siteUrl,
+    image: `${siteUrl}/images/alaa-badr-800.jpg`,
+    jobTitle: 'Technology Executive & Community Educator',
+    description:
+      'Senior technology executive with three decades of experience in customer success, cloud services, and enterprise transformation. Cairo-born, Seattle-based.',
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'University of Canberra' },
+      { '@type': 'CollegeOrUniversity', name: 'Ain Shams University' },
+    ],
+    knowsLanguage: ['en', 'ar'],
+    sameAs: [
+      'https://www.linkedin.com/in/alaa-badr-',
+      'https://x.com/alaabaadr',
+      'https://alaabadr.bio',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
+    url: siteUrl,
+    name: 'Alaa Badr',
+    description:
+      'The personal site of Alaa Badr — technology executive, community educator, and writer.',
+    publisher: { '@id': `${siteUrl}/#person` },
+    inLanguage: 'en',
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SeoHead
+      title={`${title} | Alaa Badr`}
+      description={description}
+      image={image}
+      type={type}
+      publishedDate={publishedDate}
+      siteName="Alaa Badr"
+      relMeLinks={[
+        'https://www.linkedin.com/in/alaa-badr-',
+        'https://x.com/alaabaadr',
+        'https://alaabadr.bio',
+      ]}
+      rssUrl="/rss.xml"
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Nav />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

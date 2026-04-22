@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Update this date whenever you revise the page — that's the whole point.
+const lastUpdated = new Date('2026-04-22');
+const dateFmt = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const blocks = [
+  {
+    icon: '◐',
+    title: 'Work',
+    accent: 'forest-teal',
+    body: "Most recently VP & General Manager of Customer Success at Intel (2022–2024), focused on AI-as-a-Service and Confidential Computing. Currently evaluating what comes next — advisory, board, or the next operating role — and spending time sharpening the thinking on where customer success goes in the AI era.",
+  },
+  {
+    icon: '◑',
+    title: 'Teaching',
+    accent: 'burnt-sienna',
+    body: "Every week, teaching at the Muslim Association of Puget Sound in Redmond and leading the Weekly Knowledge Quest series at the Islamic Center of Bothell. Topics span faith, resilience, civic engagement, and personal development.",
+  },
+  {
+    icon: '◒',
+    title: 'Speaking',
+    accent: 'dusty-rose',
+    body: "Open to keynotes, panels, and podcast guest spots on customer success, AI-as-a-Service, cloud transformation, and leading cross-cultural teams. Most recent talk: Bellevue Rotary, January 2024 — Evolution of Customer Success with AI Capability.",
+  },
+  {
+    icon: '◓',
+    title: 'Writing',
+    accent: 'marigold',
+    body: "Published opinion contributor at The Seattle Times on Middle East affairs and civic engagement. Writing more longform now — the intersection of technology leadership, faith, and multi-cultural leadership.",
+  },
+  {
+    icon: '◐',
+    title: 'Learning',
+    accent: 'forest-teal',
+    body: "AI-as-a-Service is the through-line right now — where the value actually accrues, how customer success shifts when software becomes agentive, and how trust gets built when the product changes itself every week.",
+  },
+  {
+    icon: '◑',
+    title: 'Community',
+    accent: 'burnt-sienna',
+    body: "Active with the Bellevue Rotary Club. Mentoring younger professionals navigating global careers and cross-cultural leadership. If you're early-career and want a thirty-minute conversation, the door is open — LinkedIn is the best place to ask.",
+  },
+];
+
+const accentClasses: Record<string, string> = {
+  'forest-teal': 'text-forest-teal bg-forest-teal/10 border-forest-teal/30',
+  'burnt-sienna': 'text-burnt-sienna bg-burnt-sienna/10 border-burnt-sienna/30',
+  'dusty-rose': 'text-dusty-rose bg-dusty-rose/10 border-dusty-rose/30',
+  'marigold': 'text-deep-brown bg-marigold/15 border-marigold/30',
+};
+---
+
+<BaseLayout
+  title="Now"
+  description="What Alaa Badr is focused on right now — work, reading, projects, and life in the present tense."
+>
+  <!-- Hero with image -->
+  <section class="relative bg-gradient-to-b from-peach-cream/60 to-warm-white pb-16 md:pb-24 border-b border-warm-blush overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.12] pointer-events-none">
+      <img src="/images/pages/now-hero.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
+    </div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 pt-20 md:pt-28">
+      <p class="font-caveat text-2xl text-burnt-sienna mb-3">A letter to future visitors</p>
+      <h1 class="font-fraunces text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-6 leading-tight">
+        What I'm doing <span class="text-forest-teal">now</span>
+      </h1>
+      <p class="text-lg text-warm-umber leading-relaxed max-w-2xl">
+        This is a <a href="https://nownownow.com/about" class="text-forest-teal">/now page</a> &mdash; Derek Sivers' convention for "what a person is focused on at this point in their life." Short, honest, updated monthly. Not a changelog, a snapshot.
+      </p>
+      <p class="mt-6 text-sm font-lato text-warm-umber/80">
+        Last updated <time datetime={lastUpdated.toISOString()}>{dateFmt.format(lastUpdated)}</time> &middot; from Seattle, WA
+      </p>
+    </div>
+  </section>
+
+  <!-- Now blocks -->
+  <section class="bg-warm-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        {blocks.map((b) => (
+          <article class={`rounded-3xl p-7 md:p-8 border ${accentClasses[b.accent]} bg-opacity-30 backdrop-blur-sm`}>
+            <div class="flex items-center gap-3 mb-3">
+              <span class={`text-3xl ${accentClasses[b.accent].split(' ')[0]}`}>{b.icon}</span>
+              <h2 class="font-fraunces text-2xl text-deep-brown">{b.title}</h2>
+            </div>
+            <p class="text-warm-umber leading-relaxed">{b.body}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="max-w-prose mx-auto mt-16">
+        <blockquote class="font-caveat text-3xl text-burnt-sienna border-l-4 border-burnt-sienna/30 pl-5">
+          The now page is written like a letter to a distant friend. If you're reading it, consider yourself a distant friend.
+        </blockquote>
+
+        <p class="mt-10 text-warm-umber/80 text-sm">
+          Inspired by Derek Sivers. <a href="https://nownownow.com/" class="text-forest-teal">See other /now pages</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

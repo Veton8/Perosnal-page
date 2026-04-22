@@ -1,0 +1,27 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  description: string;
+}
+
+const { number, title, description } = Astro.props;
+---
+
+<article class="bg-cream rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+  <div class="font-sourceSans text-xs uppercase tracking-widest text-terracotta mb-3">
+    Episode {String(number).padStart(2, '0')}
+  </div>
+  <h3 class="font-playfair text-xl font-semibold text-charcoal mb-3">
+    {title}
+  </h3>
+  <p class="text-warm-gray leading-relaxed text-[0.95rem] mb-5">
+    {description}
+  </p>
+  <button class="inline-flex items-center gap-2 font-sourceSans text-sm font-semibold text-terracotta hover:text-deep-terracotta transition-colors">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+    Listen Now
+  </button>
+</article>

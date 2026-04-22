@@ -1,0 +1,13 @@
+{
+  "name": "alaabadr-websites",
+  "private": true,
+  "scripts": {
+    "dev:net-a": "pnpm --filter net-template-a dev",
+    "dev:net-b": "pnpm --filter net-template-b dev",
+    "build:all": "pnpm -r build",
+    "install:all": "pnpm install"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp"]
+  }
+}

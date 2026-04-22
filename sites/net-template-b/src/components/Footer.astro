@@ -1,0 +1,79 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-pale-sage border-t border-warm-blush mt-0">
+  <!-- Newsletter surface -->
+  <div class="bg-gradient-to-b from-warm-white to-pale-sage py-16 md:py-20 border-b border-warm-blush/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <NewsletterForm />
+    </div>
+  </div>
+
+  <!-- Footer body -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid md:grid-cols-3 gap-10 items-start">
+    <!-- h-card: microformats identity block -->
+    <div class="h-card">
+      <p class="font-fraunces text-2xl text-deep-brown mb-2">
+        <a class="p-name u-url text-deep-brown no-underline" href="https://alaabadr.net" rel="me">Alaa Badr</a>
+      </p>
+      <p class="p-note text-sm text-warm-umber leading-relaxed">
+        <span class="p-locality">Seattle</span>-based technology executive &amp; community educator. Cairo roots, six languages, thirty years in the industry.
+      </p>
+      <p class="mt-3 text-sm font-lato">
+        <a class="text-forest-teal no-underline hover:underline" href="https://www.linkedin.com/in/alaa-badr-" rel="me">LinkedIn</a>
+        &middot;
+        <a class="text-forest-teal no-underline hover:underline" href="https://x.com/alaabaadr" rel="me">@alaabaadr</a>
+      </p>
+    </div>
+
+    <!-- Explore -->
+    <div>
+      <p class="font-lato text-xs uppercase tracking-wider text-warm-umber/70 mb-3">Explore</p>
+      <ul class="space-y-2 text-sm font-lato">
+        <li><a href="/writing/" class="text-warm-umber hover:text-forest-teal no-underline">Writing</a></li>
+        <li><a href="/now/" class="text-warm-umber hover:text-forest-teal no-underline">/now</a></li>
+        <li><a href="/uses/" class="text-warm-umber hover:text-forest-teal no-underline">/uses</a></li>
+        <li><a href="/colophon/" class="text-warm-umber hover:text-forest-teal no-underline">Colophon</a></li>
+        <li><a href="/about/" class="text-warm-umber hover:text-forest-teal no-underline">About</a></li>
+      </ul>
+    </div>
+
+    <!-- Subscribe / rel=me -->
+    <div>
+      <p class="font-lato text-xs uppercase tracking-wider text-warm-umber/70 mb-3">Subscribe &amp; follow</p>
+      <ul class="space-y-2 text-sm font-lato">
+        <li>
+          <a href="https://www.linkedin.com/in/alaa-badr-" rel="me" class="text-warm-umber hover:text-forest-teal no-underline">LinkedIn</a>
+        </li>
+        <li>
+          <a href="https://x.com/alaabaadr" rel="me" class="text-warm-umber hover:text-forest-teal no-underline">X / @alaabaadr</a>
+        </li>
+        <li>
+          <a href="https://alaabadr.bio" rel="me" class="text-warm-umber hover:text-forest-teal no-underline">alaabadr.bio</a>
+        </li>
+        <li>
+          <a href="/rss.xml" class="text-warm-umber hover:text-forest-teal no-underline">RSS feed</a>
+        </li>
+      </ul>
+
+      <!-- IndieWeb discovery -->
+      <link rel="webmention" href="https://webmention.io/alaabadr.net/webmention" />
+      <link rel="pingback" href="https://webmention.io/alaabadr.net/xmlrpc" />
+    </div>
+  </div>
+
+  <!-- Bottom strip -->
+  <div class="border-t border-warm-blush/60 py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-3 text-xs font-lato text-warm-umber/70">
+      <p>
+        &copy; {year} Alaa Badr &middot; Built with care in Seattle.
+      </p>
+      <p class="font-caveat text-base text-warm-umber">
+        Made with warmth, curiosity, and too much Egyptian coffee.
+      </p>
+    </div>
+  </div>
+</footer>

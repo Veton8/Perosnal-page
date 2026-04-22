@@ -1,0 +1,38 @@
+---
+import SeoHead from '../../../../shared/components/SeoHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string;
+}
+
+const { title, description, image, type = 'website', publishedDate } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SeoHead
+      title={`${title} — Alaa Badr`}
+      description={description}
+      image={image}
+      type={type}
+      publishedDate={publishedDate}
+      siteName="Alaa Badr"
+      relMeLinks={['https://alaabadr.org']}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Nav />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

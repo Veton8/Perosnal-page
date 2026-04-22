@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const strengths = [
+  { label: 'Customer Success Strategy', color: 'bg-forest-teal/15 text-forest-teal border-forest-teal/30' },
+  { label: 'Cloud & SaaS Transformation', color: 'bg-burnt-sienna/15 text-burnt-sienna border-burnt-sienna/30' },
+  { label: 'AI-as-a-Service', color: 'bg-marigold/15 text-deep-brown border-marigold/30' },
+  { label: 'Confidential Computing', color: 'bg-dusty-rose/15 text-dusty-rose border-dusty-rose/30' },
+  { label: 'Global Team Building', color: 'bg-forest-teal/15 text-forest-teal border-forest-teal/30' },
+  { label: 'Enterprise Go-to-Market', color: 'bg-burnt-sienna/15 text-burnt-sienna border-burnt-sienna/30' },
+  { label: 'Cross-Cultural Leadership', color: 'bg-marigold/15 text-deep-brown border-marigold/30' },
+  { label: 'Public Speaking', color: 'bg-dusty-rose/15 text-dusty-rose border-dusty-rose/30' },
+  { label: 'Community Education', color: 'bg-forest-teal/15 text-forest-teal border-forest-teal/30' },
+  { label: 'Interfaith Dialogue', color: 'bg-burnt-sienna/15 text-burnt-sienna border-burnt-sienna/30' },
+  { label: 'Mentorship', color: 'bg-marigold/15 text-deep-brown border-marigold/30' },
+  { label: 'Thought Leadership', color: 'bg-dusty-rose/15 text-dusty-rose border-dusty-rose/30' },
+];
+
+const timeline = [
+  { period: '2022 – 2024', place: 'Intel Corporation', role: 'VP & General Manager, Customer Success', description: 'Led Customer Success for Intel\'s Software and SaaS go-to-market, with a focus on AI-as-a-Service, Confidential Computing, and cloud optimization. Managed 200+ architects and customer success managers supporting Intel\'s next-generation cloud-SaaS business.' },
+  { period: '2020 – 2022', place: 'Oracle Cloud Infrastructure', role: 'VP, Customer Experience', description: 'Oversaw a customer experience organization of ~600 engineers. Contributed to 55% year-over-year OCI revenue growth through customer-centric strategies and operational excellence.' },
+  { period: '2019 – 2020', place: 'Microsoft · Azure', role: 'GM, Customer Success — Azure Data & AI Solutions', description: 'Owned the customer success portfolio for Microsoft\'s top 200 global customers, including Walmart, Citi, Home Depot, and Pearson, focused on Azure Data and AI adoption.' },
+  { period: '2015 – 2019', place: 'VMware', role: 'VP, Customer Success / VP, Cloud Services', description: 'Led the customer success transformation across desktop-in-the-cloud, SaaS productivity, and VMware Cloud on AWS. Featured keynote speaker at Gainsight Pulse 2018 on driving SaaS growth through customer success.' },
+  { period: '2013 – 2015', place: 'Amazon Web Services', role: 'Global Business Development', description: 'Led engineering and go-to-market for Amazon WorkSpaces, WorkDocs, WorkMail, and Windows Application Manager. Achieved 200% monthly recurring revenue growth within 12 months.' },
+  { period: '2001 – 2013', place: 'Microsoft', role: 'Director-level roles', description: 'Leadership roles in Business Management (Online Services), Business Architecture (Windows Devices & Applications), and Field Enablement, with assignments across Russia, Japan, and Saudi Arabia. Led enterprise go-to-market strategy for Windows 8 tablets.' },
+  { period: '1990s', place: 'Earlier career', role: 'Hewlett-Packard, XcelleNet (Sterling Commerce), Vanstar, Georgia-Pacific', description: 'A decade of operating and technology roles across enterprise software and systems, beginning with mobile systems consulting in Australia (1990–1992).' },
+];
+
+const education = [
+  { degree: 'Bachelor of Engineering, Communications Engineering', school: 'University of Canberra', period: '1986 – 1989' },
+  { degree: 'Computer Engineering Studies', school: 'Ain Shams University, Cairo', period: '' },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Alaa Badr is a senior technology executive with three decades of experience in customer success and cloud services. Cairo-born, Seattle-based, community educator."
+>
+  <!-- Hero (h-card microformat wraps the identity block for IndieWeb) -->
+  <section class="bg-gradient-to-b from-peach-cream/60 to-warm-white py-20 md:py-28 border-b border-warm-blush">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center h-card">
+        <div>
+          <p class="font-caveat text-2xl text-burnt-sienna mb-3">The longer version</p>
+          <h1 class="font-fraunces text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-6 leading-tight">
+            About <span class="p-name">Alaa Badr</span>
+          </h1>
+          <p class="p-note text-lg text-warm-umber leading-relaxed">
+            Senior technology executive, community educator, and published writer. Cairo-born, <span class="p-locality">Seattle</span>-based. Three decades at Intel, Oracle Cloud, Microsoft, AWS, and VMware &mdash; and every week back in the classroom.
+          </p>
+          <p class="mt-4 text-sm font-lato text-warm-umber/80">
+            <a class="u-email text-forest-teal" href="https://www.linkedin.com/in/alaa-badr-" rel="me">LinkedIn</a> &middot;
+            <a class="text-forest-teal" href="https://x.com/alaabaadr" rel="me">X / @alaabaadr</a> &middot;
+            <a class="u-url text-forest-teal" href="https://alaabadr.net" rel="me">alaabadr.net</a>
+          </p>
+        </div>
+        <div class="relative max-w-[380px] mx-auto md:ml-auto md:mr-0">
+          <picture>
+            <source srcset="/images/alaa-badr-800.webp" type="image/webp" />
+            <img
+              src="/images/alaa-badr-800.jpg"
+              alt="Alaa Badr"
+              width="800"
+              height="800"
+              class="u-photo aspect-square rounded-3xl object-cover w-full shadow-sm"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
+          <div class="absolute -bottom-3 -right-3 w-20 h-20 rounded-2xl bg-marigold/15 -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="bg-warm-white py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="space-y-6 text-lg leading-relaxed text-warm-umber">
+        <p>
+          Alaa Badr is a senior technology executive with over three decades of experience in customer success, cloud services, and enterprise transformation. Originally from Cairo, Egypt, and now based in the Seattle area, Alaa has held VP and General Manager roles at some of the most influential technology companies in the world &mdash; including Intel, Microsoft, Amazon Web Services, VMware, and Oracle Cloud Infrastructure.
+        </p>
+        <p>
+          Throughout his career, Alaa has built and scaled global customer success organizations, driven SaaS and cloud adoption strategies, and led cross-functional teams of hundreds of engineers and architects. He is passionate about leveraging AI, data analytics, and cloud computing to deliver exceptional customer outcomes at scale.
+        </p>
+        <p>
+          A bilingual engineer by training, community educator, and a published opinion writer, Alaa brings a unique blend of deep technical expertise, global business acumen, and human-centered leadership to everything he does.
+        </p>
+      </div>
+
+      <div class="mt-12">
+        <blockquote class="font-caveat text-3xl md:text-4xl text-center text-forest-teal leading-snug">
+          "Leaders build two things over a career &mdash; teams and trust. The first gets you hired. The second gets you listened to."
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="bg-peach-cream/50 py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <SectionHeading title="Career Timeline" accent="sienna" />
+
+      <div class="space-y-0">
+        {timeline.map((item, i) => (
+          <div class="relative pl-10 pb-12 last:pb-0 border-l-2 border-warm-blush">
+            <div class={`absolute left-0 top-0 w-5 h-5 rounded-full -translate-x-[11px] ${
+              ['bg-burnt-sienna', 'bg-forest-teal', 'bg-marigold', 'bg-dusty-rose'][i % 4]
+            }`}></div>
+            <span class="font-caveat text-xl text-burnt-sienna">{item.period}</span>
+            <h3 class="font-fraunces text-xl text-deep-brown mt-1 mb-1">{item.place}</h3>
+            <p class="font-lato font-bold text-sm text-warm-umber mb-2">{item.role}</p>
+            <p class="text-warm-umber leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="bg-warm-white py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <SectionHeading title="Education" accent="teal" />
+
+      <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {education.map((e) => (
+          <div class="bg-peach-cream/40 rounded-2xl p-6 border border-warm-blush/50">
+            <p class="font-fraunces text-lg text-deep-brown mb-1">{e.degree}</p>
+            <p class="text-warm-umber text-sm mb-2">{e.school}</p>
+            {e.period && <p class="font-caveat text-base text-burnt-sienna">{e.period}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Strengths -->
+  <section class="bg-pale-sage py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <SectionHeading title="What I Do Best" accent="teal" />
+      <div class="flex flex-wrap gap-3 justify-center">
+        {strengths.map((s) => (
+          <span class={`px-5 py-2.5 rounded-full text-sm font-lato font-bold border ${s.color} transition-transform hover:scale-105`}>
+            {s.label}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section class="bg-warm-white py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <SectionHeading title="Languages" subtitle="Six ways to hold a conversation" accent="marigold" />
+
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-lg text-warm-umber leading-relaxed mb-6">
+          I speak six languages. Arabic at home, English at work, and four more picked up across assignments in Russia, Japan, Saudi Arabia, Australia, and the United States. Each one opened a door I couldn't have found without it.
+        </p>
+        <p class="font-caveat text-2xl text-burnt-sienna">
+          Arabic · English · &amp; four more along the way
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect -->
+  <section class="bg-gradient-to-b from-peach-cream/40 to-pale-sage py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <SectionHeading title="Say Hello" subtitle="For speaking, advising, or just a good conversation" accent="teal" />
+      <p class="text-lg text-warm-umber leading-relaxed mb-8">
+        Open to keynotes, podcast guest spots, advisory roles, and introductions. LinkedIn is the best first stop.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="https://www.linkedin.com/in/alaa-badr-" class="inline-block px-6 py-3 bg-forest-teal text-warm-white rounded-full font-lato font-bold text-sm no-underline hover:bg-forest-teal/90 transition-colors">
+          Connect on LinkedIn
+        </a>
+        <a href="https://x.com/alaabaadr" class="inline-block px-6 py-3 bg-burnt-sienna text-warm-white rounded-full font-lato font-bold text-sm no-underline hover:bg-burnt-sienna/90 transition-colors">
+          Follow on X
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

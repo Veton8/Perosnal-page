@@ -1,0 +1,80 @@
+---
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+
+const navLinks = [
+  { href: isHome ? '#about' : '/#about', label: 'About' },
+  { href: isHome ? '#podcast' : '/#podcast', label: 'Podcast' },
+  { href: isHome ? '#diving' : '/#diving', label: 'Diving' },
+  { href: isHome ? '#travel' : '/#travel', label: 'Travel' },
+  { href: isHome ? '#connect' : '/#connect', label: 'Connect' },
+];
+---
+
+<nav class="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-sand">
+  <div class="max-w-wide mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-playfair text-xl font-semibold text-charcoal hover:text-terracotta transition-colors">
+      Alaa Badr
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-8 font-sourceSans text-sm tracking-wide">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-warm-gray transition-colors hover:text-terracotta"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-toggle"
+      class="md:hidden text-charcoal p-2"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-sand bg-cream">
+    <ul class="px-6 py-4 space-y-3 font-sourceSans text-sm">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="block py-1 text-warm-gray transition-colors hover:text-terracotta"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Close mobile menu when clicking an anchor link
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

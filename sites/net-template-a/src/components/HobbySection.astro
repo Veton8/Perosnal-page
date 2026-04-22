@@ -1,0 +1,20 @@
+---
+interface Props {
+  accent?: boolean;
+  id?: string;
+}
+
+const { accent = false, id } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={[
+    'py-24 md:py-32',
+    accent ? 'bg-linen' : 'bg-cream',
+  ]}
+>
+  <div class="max-w-wide mx-auto px-6">
+    <slot />
+  </div>
+</section>

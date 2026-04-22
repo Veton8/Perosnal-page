@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('writing', ({ data }) => !data.draft);
+const posts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const dateFmt = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+
+const categoryColors: Record<string, string> = {
+  essay: 'bg-burnt-sienna/15 text-burnt-sienna',
+  journal: 'bg-dusty-rose/15 text-dusty-rose',
+  'dive-log': 'bg-forest-teal/15 text-forest-teal',
+  travel: 'bg-marigold/15 text-deep-brown',
+  kitchen: 'bg-burnt-sienna/15 text-burnt-sienna',
+};
+---
+
+<BaseLayout
+  title="Writing"
+  description="Essays, journal entries, dive logs, and kitchen notes by Alaa Badr."
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-b from-peach-cream/60 to-warm-white pb-16 md:pb-24 border-b border-warm-blush overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.10] pointer-events-none">
+      <img src="/images/pages/writing-hero.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 pt-20 md:pt-28">
+      <p class="font-caveat text-2xl text-burnt-sienna mb-3">The writing archive</p>
+      <h1 class="font-fraunces text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-6 leading-tight">
+        Essays &amp; journal
+      </h1>
+      <p class="text-lg text-warm-umber leading-relaxed max-w-2xl">
+        Longer thoughts on customer success in the AI era, cloud transformation, leading across cultures, and the intersection of technology and community. Subscribe via <a href="/rss.xml">RSS</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-warm-white py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      {posts.length === 0 ? (
+        <p class="text-warm-umber">No entries yet &mdash; check back soon.</p>
+      ) : (
+        <ul class="space-y-10">
+          {posts.map((post) => (
+            <li class="group border-b border-warm-blush/50 pb-10 last:border-none">
+              <p class="text-sm font-lato text-warm-umber/70 mb-2 flex items-center gap-3">
+                <time datetime={post.data.date.toISOString()}>
+                  {dateFmt.format(post.data.date)}
+                </time>
+                {post.data.category && (
+                  <span class={`px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide ${categoryColors[post.data.category] || 'bg-peach-cream text-burnt-sienna'}`}>
+                    {post.data.category}
+                  </span>
+                )}
+              </p>
+              <h2 class="font-fraunces text-2xl md:text-3xl text-deep-brown mb-3 leading-snug">
+                <a href={`/writing/${post.id}/`} class="no-underline hover:text-burnt-sienna transition-colors">
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="text-warm-umber leading-relaxed">{post.data.description}</p>
+              {post.data.tags.length > 0 && (
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {post.data.tags.map((t) => (
+                    <span class="text-xs font-lato text-warm-umber/70">#{t}</span>
+                  ))}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {posts.length < 3 && (
+        <div class="mt-16 bg-peach-cream/40 rounded-3xl p-8 md:p-10 border border-warm-blush/60 text-center">
+          <p class="font-caveat text-2xl text-burnt-sienna mb-2">The archive is still being seeded</p>
+          <p class="text-warm-umber text-sm max-w-xl mx-auto">
+            New essays are in progress. In the meantime, past opinion writing lives at <a href="https://www.seattletimes.com" class="text-forest-teal">The Seattle Times</a>, and speaking notes are linked from the homepage.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

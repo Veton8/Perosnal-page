@@ -1,0 +1,64 @@
+---
+interface Props {
+  /** Variant: inline (compact) or block (footer / dedicated) */
+  variant?: 'inline' | 'block';
+  heading?: string;
+  blurb?: string;
+}
+
+const {
+  variant = 'block',
+  heading = 'Subscribe by email',
+  blurb = "New essays, dive logs, and podcast episodes — once every couple of weeks. No spam, no tracking, unsubscribe in one click.",
+} = Astro.props;
+
+// Placeholder endpoint. Swap `alaabadr` for your real Buttondown username
+// (https://buttondown.email — free tier covers the first 100 subscribers).
+// When you wire a real provider, only this URL needs to change.
+const action = 'https://buttondown.email/api/emails/embed-subscribe/alaabadr';
+---
+
+{variant === 'block' ? (
+  <div class="bg-peach-cream/60 rounded-3xl border border-warm-blush/60 p-8 md:p-10 max-w-2xl mx-auto">
+    <h3 class="font-fraunces text-2xl md:text-3xl text-deep-brown mb-3">{heading}</h3>
+    <p class="text-warm-umber mb-6 leading-relaxed">{blurb}</p>
+    <form action={action} method="post" target="popupwindow" class="flex flex-col sm:flex-row gap-3">
+      <label class="sr-only" for="bd-email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="bd-email"
+        required
+        placeholder="you@domain.com"
+        class="flex-1 px-4 py-3 rounded-full border border-warm-blush bg-warm-white text-deep-brown placeholder-warm-umber/60 focus:outline-none focus:ring-2 focus:ring-forest-teal/40"
+      />
+      <button
+        type="submit"
+        class="px-6 py-3 rounded-full bg-forest-teal text-warm-white font-lato font-bold text-sm hover:bg-forest-teal/90 transition-colors"
+      >
+        Subscribe
+      </button>
+    </form>
+    <p class="text-xs font-lato text-warm-umber/70 mt-3">
+      Or follow the <a href="/rss.xml">RSS feed</a>.
+    </p>
+  </div>
+) : (
+  <form action={action} method="post" target="popupwindow" class="flex flex-col sm:flex-row gap-2 max-w-md">
+    <label class="sr-only" for="bd-email-inline">Email</label>
+    <input
+      type="email"
+      name="email"
+      id="bd-email-inline"
+      required
+      placeholder="you@domain.com"
+      class="flex-1 px-4 py-2 rounded-full border border-warm-blush bg-warm-white text-deep-brown text-sm placeholder-warm-umber/60 focus:outline-none focus:ring-2 focus:ring-forest-teal/40"
+    />
+    <button
+      type="submit"
+      class="px-5 py-2 rounded-full bg-forest-teal text-warm-white font-lato font-bold text-sm hover:bg-forest-teal/90 transition-colors"
+    >
+      Subscribe
+    </button>
+  </form>
+)}

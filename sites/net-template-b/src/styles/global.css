@@ -1,0 +1,110 @@
+@import '@fontsource-variable/fraunces';
+@import '@fontsource/lato/400.css';
+@import '@fontsource/lato/700.css';
+@import '@fontsource/caveat/400.css';
+@import '@fontsource/caveat/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Body text uses Fraunces with opsz tuned for reading (smaller optical size
+   * = taller x-height, better small-text legibility). Headlines override with
+   * a larger opsz and tighter tracking further down.
+   */
+  :root {
+    --fraunces-body: 'opsz' 14, 'SOFT' 50, 'wght' 400;
+    --fraunces-display: 'opsz' 144, 'SOFT' 0, 'wght' 600;
+  }
+
+  html {
+    text-wrap: pretty;
+  }
+
+  body {
+    @apply bg-warm-white text-deep-brown leading-relaxed;
+    font-family: 'Fraunces Variable', Georgia, serif;
+    font-variation-settings: var(--fraunces-body);
+  }
+
+  ::selection {
+    @apply bg-burnt-sienna text-warm-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-fraunces;
+    font-variation-settings: var(--fraunces-display);
+    text-wrap: balance;
+  }
+
+  a {
+    @apply text-forest-teal underline decoration-warm-blush underline-offset-2 transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-burnt-sienna decoration-burnt-sienna;
+  }
+}
+
+@layer components {
+  .section-fade-in {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Kinetic opsz + SOFT animation on hero headline load */
+  .fraunces-kinetic {
+    animation: frauncesSettle 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes frauncesSettle {
+    from {
+      font-variation-settings: 'opsz' 14, 'SOFT' 100, 'wght' 300;
+      letter-spacing: 0.04em;
+    }
+    to {
+      font-variation-settings: 'opsz' 144, 'SOFT' 0, 'wght' 600;
+      letter-spacing: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fraunces-kinetic {
+      animation: none;
+      font-variation-settings: var(--fraunces-display);
+    }
+  }
+}
+
+/* Native cross-document view transitions (Chrome 126+, Safari 18+, Firefox 144+) */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}

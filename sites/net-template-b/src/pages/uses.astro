@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const groups = [
+  {
+    heading: 'Work setup',
+    blurb: 'The desk where the calls happen.',
+    accent: 'forest-teal',
+    items: [
+      { name: 'Laptop', detail: 'To be filled in — primary machine for email, docs, and video calls' },
+      { name: 'External display', detail: 'To be filled in — size + reason' },
+      { name: 'Keyboard', detail: 'To be filled in' },
+      { name: 'Webcam / mic', detail: 'To be filled in — for Zoom, Teams, podcast guest spots' },
+      { name: 'Headphones', detail: 'To be filled in' },
+      { name: 'Chair', detail: 'To be filled in — the most important purchase of the decade' },
+    ],
+  },
+  {
+    heading: 'Writing & research',
+    blurb: 'How the longer thinking happens.',
+    accent: 'burnt-sienna',
+    items: [
+      { name: 'Notes app', detail: 'To be filled in — Apple Notes, Obsidian, paper?' },
+      { name: 'Reading', detail: 'To be filled in — Kindle, physical, a mix?' },
+      { name: 'Annotation', detail: 'To be filled in' },
+      { name: 'Calendar', detail: 'To be filled in' },
+      { name: 'Email client', detail: 'To be filled in' },
+      { name: 'AI tools', detail: 'To be filled in — what\'s actually earning its keep' },
+    ],
+  },
+  {
+    heading: 'Travel',
+    blurb: 'For trips across continents and across the bridge.',
+    accent: 'dusty-rose',
+    items: [
+      { name: 'Carry-on', detail: 'To be filled in' },
+      { name: 'Backpack', detail: 'To be filled in' },
+      { name: 'Adapter / cables', detail: 'To be filled in' },
+      { name: 'Noise-cancelling headphones', detail: 'To be filled in' },
+      { name: 'Passport case', detail: 'To be filled in' },
+      { name: 'Travel notebook', detail: 'To be filled in' },
+    ],
+  },
+  {
+    heading: 'Teaching',
+    blurb: 'What shows up to the Friday session.',
+    accent: 'marigold',
+    items: [
+      { name: 'Slides tool', detail: 'To be filled in — Keynote, Google Slides, plain paper' },
+      { name: 'Reference library', detail: 'To be filled in' },
+      { name: 'Translation tools', detail: 'To be filled in' },
+      { name: 'Recording', detail: 'To be filled in — do sessions get recorded for the archive?' },
+    ],
+  },
+  {
+    heading: 'Kitchen',
+    blurb: 'The short list actually in use.',
+    accent: 'forest-teal',
+    items: [
+      { name: 'Knife', detail: 'To be filled in — one good knife beats six mediocre ones' },
+      { name: 'Kettle', detail: 'To be filled in — the tea is sacred' },
+      { name: 'Pan', detail: 'To be filled in' },
+      { name: 'Coffee setup', detail: 'To be filled in' },
+    ],
+  },
+  {
+    heading: 'Daily carry',
+    blurb: 'What travels in the bag every day.',
+    accent: 'burnt-sienna',
+    items: [
+      { name: 'Wallet', detail: 'To be filled in' },
+      { name: 'Pen & notebook', detail: 'To be filled in' },
+      { name: 'Earbuds', detail: 'To be filled in' },
+      { name: 'Bag', detail: 'To be filled in' },
+    ],
+  },
+];
+
+const accentClasses: Record<string, string> = {
+  'forest-teal': 'text-forest-teal',
+  'burnt-sienna': 'text-burnt-sienna',
+  'dusty-rose': 'text-dusty-rose',
+  'marigold': 'text-deep-brown',
+};
+const accentBg: Record<string, string> = {
+  'forest-teal': 'bg-forest-teal',
+  'burnt-sienna': 'bg-burnt-sienna',
+  'dusty-rose': 'bg-dusty-rose',
+  'marigold': 'bg-marigold',
+};
+---
+
+<BaseLayout
+  title="Uses"
+  description="The gear, tools, and software Alaa Badr actually uses — from dive kit to podcast studio to kitchen."
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-b from-peach-cream/60 to-warm-white pb-16 md:pb-24 border-b border-warm-blush overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.10] pointer-events-none">
+      <img src="/images/pages/uses-hero.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
+    </div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 pt-20 md:pt-28">
+      <p class="font-caveat text-2xl text-burnt-sienna mb-3">What I actually use</p>
+      <h1 class="font-fraunces text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-6 leading-tight">
+        Uses
+      </h1>
+      <p class="text-lg text-warm-umber leading-relaxed max-w-2xl">
+        A <a href="https://uses.tech" class="text-forest-teal">/uses page</a> in the tradition of Wes Bos. The gear I reach for every day, listed without sponsorship. Updated when something actually changes &mdash; not when a new version ships.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-warm-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-16">
+      {groups.map((group) => (
+        <div class="grid md:grid-cols-[180px_1fr] gap-6 md:gap-10">
+          <div>
+            <div class={`w-10 h-1 rounded-full mb-3 ${accentBg[group.accent]}`}></div>
+            <h2 class="font-fraunces text-3xl text-deep-brown mb-1">{group.heading}</h2>
+            <p class="font-caveat text-lg text-burnt-sienna">{group.blurb}</p>
+          </div>
+          <dl class="grid sm:grid-cols-2 gap-x-10 gap-y-5">
+            {group.items.map((item) => (
+              <div class="border-b border-warm-blush/40 pb-3">
+                <dt class="font-lato font-bold text-deep-brown text-sm">{item.name}</dt>
+                <dd class="text-warm-umber text-sm mt-0.5"><em>{item.detail}</em></dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ))}
+
+      <div class="max-w-prose mx-auto pt-10 border-t border-warm-blush/50">
+        <p class="text-warm-umber text-sm">
+          No affiliate links. No sponsored placements. If something gets replaced, the old version disappears from the page. Inspired by Wes Bos's <a href="https://uses.tech/" class="text-forest-teal">uses.tech</a> directory.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

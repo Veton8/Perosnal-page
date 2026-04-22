@@ -1,0 +1,403 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import EpisodeCard from '../components/EpisodeCard.astro';
+import PhotoCard from '../components/PhotoCard.astro';
+import HobbySection from '../components/HobbySection.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="Alaa Badr — storyteller, explorer, and lifelong learner. A personal site about diving, travel, food, podcasting, and the stories that shape a life."
+>
+  <!-- ═══════════════════════════════════════════ HERO ═══════════════════════════════════════════ -->
+  <section class="min-h-screen flex flex-col items-center justify-center relative bg-cream px-6">
+    <div class="max-w-wide mx-auto text-center">
+      <img src="/images/alaa-badr.jpg" alt="Alaa Badr" class="w-40 h-40 md:w-52 md:h-52 mx-auto rounded-full object-cover mb-10" />
+
+      <h1 class="font-playfair text-5xl md:text-7xl font-bold text-charcoal mb-6">
+        Hello, I'm Alaa
+      </h1>
+      <p class="text-lg md:text-xl text-warm-gray leading-relaxed max-w-2xl mx-auto">
+        A storyteller, explorer, and lifelong learner making his home in Seattle
+        — but the world is my backyard.
+      </p>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-warm-gray/50 hover:text-terracotta transition-colors" aria-label="Scroll down">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ ABOUT ═══════════════════════════════════════════ -->
+  <HobbySection id="about" accent>
+    <SectionTitle title="About Me" subtitle="The short version of a long story." />
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="space-y-6 text-charcoal leading-[1.85]">
+        <p>
+          I was born in Cairo, grew up between the bustling energy of the Egyptian capital and
+          the breezy Mediterranean coast of Alexandria. Those early years — filled with the call
+          to prayer at dawn, the scent of ful medames from street carts, and the laughter of a
+          big family gathered around a table — shaped everything about who I am.
+        </p>
+        <p>
+          Today I live in Seattle with my wife and our three daughters. We are building a life in
+          the Pacific Northwest, a place where the rain reminds me that beauty grows from patience,
+          and where the mountains are never far from view. My daughters are opinionated, hilarious,
+          and better at technology than I will ever be. They are the reason I tell stories — partly
+          to leave them something to read one day, and partly because they keep giving me things
+          worth writing about.
+        </p>
+        <p>
+          I speak Arabic, English, and enough French to order dinner confidently and apologize for
+          my accent afterward. I have lived and worked across continents — from the Middle East to
+          France, Canada, Japan, Russia, and Korea — and every place has left its fingerprint on me.
+          My life philosophy is simple: curiosity over comfort, warmth over distance, and absolutely
+          not one boring moment.
+        </p>
+      </div>
+
+      <img src="/images/alaa-badr.jpg" alt="Alaa Badr" class="aspect-[3/4] w-full rounded-2xl object-cover" />
+    </div>
+  </HobbySection>
+
+  <!-- ═══════════════════════════════════════════ PODCAST ═══════════════════════════════════════════ -->
+  <HobbySection id="podcast">
+    <SectionTitle
+      title="The Alaa Badr Podcast"
+      subtitle="Conversations about technology, culture, leadership, and the human stories behind innovation."
+    />
+
+    <div class="grid md:grid-cols-3 gap-6 mb-10">
+      <EpisodeCard
+        number={1}
+        title="From Cairo to the Cloud: My Journey in Tech"
+        description="How growing up between two worlds shaped my approach to technology and leadership — and why the best ideas often come from the most unexpected places."
+      />
+      <EpisodeCard
+        number={2}
+        title="What Scuba Diving Taught Me About Leadership"
+        description="Sixty feet under the Red Sea, I learned more about trust, calm under pressure, and letting go of control than any boardroom ever taught me."
+      />
+      <EpisodeCard
+        number={3}
+        title="Raising Daughters in Two Cultures"
+        description="On navigating identity, language, and tradition when your children are growing up between Egypt and America — and the beautiful chaos that comes with it."
+      />
+    </div>
+
+    <div class="flex flex-wrap items-center gap-6 font-sourceSans text-sm text-warm-gray">
+      <span class="font-semibold text-charcoal">Listen on:</span>
+      <a href="#" class="hover:text-terracotta transition-colors flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+        Spotify
+      </a>
+      <a href="#" class="hover:text-terracotta transition-colors flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+        Apple Podcasts
+      </a>
+      <a href="#" class="hover:text-terracotta transition-colors flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+        YouTube
+      </a>
+    </div>
+  </HobbySection>
+
+  <!-- ═══════════════════════════════════════════ DIVING ═══════════════════════════════════════════ -->
+  <HobbySection id="diving" accent>
+    <SectionTitle
+      title="Life Below the Surface"
+      subtitle="There is a world beneath the waves that changes the way you see the one above."
+    />
+
+    <div class="space-y-10">
+      <p class="text-charcoal leading-[1.85] max-w-content">
+        The first time I descended into the Red Sea, I understood silence in a way I never had before.
+        Down there, surrounded by coral cities older than any human civilization, time works differently.
+        You breathe slowly. You notice everything. A parrotfish crunching coral sounds like rain on a
+        tin roof. A moray eel peers at you from its burrow like an old neighbor checking who is at
+        the door. It is humbling, and it is addictive.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <PhotoCard
+          caption="The coral gardens of Ras Mohammed, Red Sea"
+          aspect="landscape"
+          src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=1200&q=80&auto=format&fit=crop"
+          alt="Vibrant coral reef garden in the Red Sea"
+        />
+        <PhotoCard
+          caption="Night diving in Dahab, Egypt"
+          aspect="landscape"
+          src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80&auto=format&fit=crop"
+          alt="Scuba diver descending into deep blue water"
+        />
+        <PhotoCard
+          caption="Reef exploration near Hurghada"
+          aspect="landscape"
+          src="https://images.unsplash.com/photo-1540202404-1b927e27fa8b?w=1200&q=80&auto=format&fit=crop"
+          alt="Diver swimming alongside a sea turtle over a reef"
+        />
+      </div>
+
+      <blockquote class="border-l-4 border-terracotta pl-6 py-2 max-w-content">
+        <p class="text-charcoal italic leading-relaxed text-lg">
+          "The ocean teaches you to be still, to trust, and to marvel at how much life thrives
+          in the places you cannot see from the surface."
+        </p>
+      </blockquote>
+    </div>
+  </HobbySection>
+
+  <!-- ═══════════════════════════════════════════ TRAVEL ═══════════════════════════════════════════ -->
+  <HobbySection id="travel">
+    <SectionTitle
+      title="Passport Stamps & Stories"
+      subtitle="Every place I have lived has left its fingerprint on me."
+    />
+
+    <p class="text-charcoal leading-[1.85] max-w-content mb-10">
+      I have been fortunate to live and work across continents — not as a tourist passing through,
+      but as someone settling in long enough to learn the rhythms of a place. Where the best bread
+      is baked. Which streets come alive after dark. How strangers become neighbors. These are the
+      things that stay with you long after the stamps in your passport have faded.
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+      {[
+        { place: 'Cairo, Egypt', emoji: 'Home' },
+        { place: 'Alexandria, Egypt', emoji: 'Coast' },
+        { place: 'Paris, France', emoji: 'Light' },
+        { place: 'Montreal, Canada', emoji: 'Snow' },
+        { place: 'Tokyo, Japan', emoji: 'Order' },
+        { place: 'Moscow, Russia', emoji: 'History' },
+        { place: 'Seoul, Korea', emoji: 'Energy' },
+        { place: 'Seattle, USA', emoji: 'Rain' },
+      ].map((item) => (
+        <div class="bg-linen rounded-xl p-5 text-center hover:shadow-sm transition-shadow">
+          <div class="font-sourceSans text-xs uppercase tracking-widest text-terracotta mb-2">
+            {item.emoji}
+          </div>
+          <div class="font-playfair text-sm font-semibold text-charcoal">
+            {item.place}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <PhotoCard
+        caption="Sunrise over the Nile, Cairo"
+        aspect="square"
+        src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1200&q=80&auto=format&fit=crop"
+        alt="The Great Pyramids of Giza at sunrise"
+      />
+      <PhotoCard
+        caption="Cherry blossoms in Tokyo"
+        aspect="square"
+        src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200&q=80&auto=format&fit=crop"
+        alt="Traditional Kyoto street with torii gate"
+      />
+      <PhotoCard
+        caption="Streets of Montmartre, Paris"
+        aspect="square"
+        src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80&auto=format&fit=crop"
+        alt="Eiffel Tower and Paris skyline"
+      />
+      <PhotoCard
+        caption="Autumn in the Pacific Northwest"
+        aspect="square"
+        src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=1200&q=80&auto=format&fit=crop"
+        alt="Banff mountain landscape with turquoise lake"
+      />
+    </div>
+  </HobbySection>
+
+  <!-- ═══════════════════════════════════════════ FOOD ═══════════════════════════════════════════ -->
+  <HobbySection accent>
+    <SectionTitle
+      title="At the Table"
+      subtitle="The best conversations happen over long meals with nowhere to be afterward."
+    />
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="space-y-6 text-charcoal leading-[1.85]">
+        <p>
+          Food is memory. The smell of my mother's koshari takes me back to a kitchen in Cairo
+          where the radio played Om Kalthoum and the windows were always open. A bowl of ful
+          medames with tahini, lemon, and a drizzle of good olive oil is not just breakfast —
+          it is a declaration of identity.
+        </p>
+        <p>
+          I believe that every cuisine tells the story of its people — their geography, their
+          history, their values. Egyptian food is generous and communal, meant to be shared.
+          Japanese food is precise and reverent. French food is theatrical and unapologetic.
+          I have learned something from every table I have sat at, and I carry those lessons
+          into my own kitchen.
+        </p>
+        <p>
+          These days, I am an enthusiastic home cook. My specialties lean Egyptian — perfectly
+          spiced molokhia, crispy falafel, and a tahini sauce that my daughters have been known
+          to eat with a spoon. But I wander. A good Japanese curry on a rainy Seattle evening,
+          a slow-braised French stew on a Sunday — the kitchen is where I travel when I cannot
+          get on a plane.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <PhotoCard
+          caption="Homemade koshari, a Cairo classic"
+          aspect="landscape"
+          src="https://images.unsplash.com/photo-1585538994928-9c3b73f6c56d?w=1200&q=80&auto=format&fit=crop"
+          alt="Freshly baked flatbread on a rustic surface"
+        />
+        <PhotoCard
+          caption="Spice market finds from a recent trip"
+          aspect="landscape"
+          src="https://images.unsplash.com/photo-1604152135912-04a022e23696?w=1200&q=80&auto=format&fit=crop"
+          alt="Colorful mounds of spices at a traditional market"
+        />
+      </div>
+    </div>
+  </HobbySection>
+
+  <!-- ═══════════════════════════════════════════ COMMUNITY ═══════════════════════════════════════════ -->
+  <HobbySection>
+    <SectionTitle
+      title="Giving Back"
+      subtitle="Community is not something you find. It is something you build."
+    />
+
+    <div class="max-w-content space-y-6 text-charcoal leading-[1.85]">
+      <p>
+        Service has been a thread running through my life for as long as I can remember. Growing up
+        in Egypt, I learned early that community is not optional — it is the fabric that holds
+        everything together. Your neighbor's concern is your concern. A stranger at your door is a
+        guest, not an interruption.
+      </p>
+      <p>
+        In Seattle, I carry that forward. I deliver khutbas — Friday sermons — at my local mosque,
+        speaking on topics that range from spiritual growth to raising children with integrity in a
+        complex world. These are not lectures; they are conversations with a community I love, about
+        the questions that keep us up at night and the faith that helps us sleep.
+      </p>
+      <p>
+        Beyond the mosque, I am involved in community advocacy — mentoring young professionals,
+        supporting immigrant families navigating a new country, and working to build bridges between
+        cultures that too often talk past each other. I believe that leadership is not a title. It is
+        showing up, listening, and doing the quiet work that nobody photographs but everybody feels.
+      </p>
+    </div>
+  </HobbySection>
+
+  <!-- ═══════════════════════════════════════════ READING ═══════════════════════════════════════════ -->
+  <HobbySection accent>
+    <SectionTitle
+      title="What I'm Reading"
+      subtitle="A life without books is a life half-lived."
+    />
+
+    <div class="max-w-content space-y-6 text-charcoal leading-[1.85] mb-10">
+      <p>
+        I read widely and without apology — history, philosophy, science, fiction, poetry in Arabic
+        and English, and the occasional management book when I need to remind myself that work is
+        also part of life. I believe that reading is the closest thing we have to telepathy: someone
+        else's thoughts, from another time and place, arriving in your mind fully formed.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {[
+        {
+          title: 'The Yacoubian Building',
+          author: 'Alaa Al Aswany',
+          note: 'A novel that captures Cairo in all its messy, beautiful complexity.',
+          image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80&auto=format&fit=crop',
+          alt: 'An open book resting on a wooden surface',
+        },
+        {
+          title: 'Thinking, Fast and Slow',
+          author: 'Daniel Kahneman',
+          note: 'Changed the way I understand decisions — mine and everyone else\'s.',
+          image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80&auto=format&fit=crop',
+          alt: 'A stack of hardcover books on a shelf',
+        },
+        {
+          title: 'The Art of Travel',
+          author: 'Alain de Botton',
+          note: 'Why we travel, what we seek, and why arriving is never the point.',
+          image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80&auto=format&fit=crop',
+          alt: 'An open book with pages turning',
+        },
+      ].map((book) => (
+        <div class="bg-cream rounded-xl p-6 shadow-sm">
+          <img
+            src={book.image}
+            alt={book.alt}
+            loading="lazy"
+            class="w-full aspect-[2/3] rounded-lg object-cover mb-4"
+          />
+          <h3 class="font-playfair text-lg font-semibold text-charcoal">{book.title}</h3>
+          <p class="font-sourceSans text-sm text-terracotta mt-1">{book.author}</p>
+          <p class="text-warm-gray text-sm mt-2 leading-relaxed">{book.note}</p>
+        </div>
+      ))}
+    </div>
+  </HobbySection>
+
+  <!-- ═══════════════════════════════════════════ CONNECT ═══════════════════════════════════════════ -->
+  <HobbySection id="connect">
+    <SectionTitle
+      title="Let's Connect"
+      subtitle="I love hearing from fellow explorers, curious minds, and anyone with a good story to tell."
+    />
+
+    <div class="max-w-content space-y-8">
+      <div class="space-y-4">
+        <a
+          href="mailto:hello@alaabadr.org"
+          class="inline-flex items-center gap-3 text-charcoal hover:text-terracotta transition-colors group"
+        >
+          <svg class="w-5 h-5 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+          </svg>
+          <span class="font-sourceSans">hello@alaabadr.org</span>
+        </a>
+
+        <a
+          href="https://alaabadr.org"
+          class="inline-flex items-center gap-3 text-charcoal hover:text-terracotta transition-colors group"
+        >
+          <svg class="w-5 h-5 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418"/>
+          </svg>
+          <span class="font-sourceSans">alaabadr.org — my professional site</span>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-4 font-sourceSans text-sm">
+        <a href="#" class="px-4 py-2 rounded-full border border-sand text-warm-gray hover:border-terracotta hover:text-terracotta transition-colors">
+          LinkedIn
+        </a>
+        <a href="#" class="px-4 py-2 rounded-full border border-sand text-warm-gray hover:border-terracotta hover:text-terracotta transition-colors">
+          Twitter / X
+        </a>
+        <a href="#" class="px-4 py-2 rounded-full border border-sand text-warm-gray hover:border-terracotta hover:text-terracotta transition-colors">
+          Instagram
+        </a>
+      </div>
+
+      <p class="text-warm-gray leading-relaxed pt-4 border-t border-sand">
+        Whether you want to talk about technology, trade book recommendations, debate the best
+        way to make koshari, or just say hello — my inbox is always open. Life is too short for
+        boring conversations.
+      </p>
+    </div>
+  </HobbySection>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import CrossLink from '../../../../shared/components/CrossLink.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-sand bg-linen">
+  <div class="max-w-wide mx-auto px-6 py-12 font-sourceSans text-sm text-warm-gray">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>Stories from Seattle and beyond &middot; &copy; {year} Alaa Badr</p>
+      <div class="flex items-center gap-6">
+        <CrossLink site="net" />
+        <a href="https://alaabadr.org" class="hover:text-terracotta transition-colors">alaabadr.org</a>
+      </div>
+    </div>
+  </div>
+</footer>

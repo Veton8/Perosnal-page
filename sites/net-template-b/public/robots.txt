@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# AI bot opt-out (per audit recommendation — flip to Disallow: / to opt in)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+Sitemap: https://alaabadr.net/sitemap-index.xml
