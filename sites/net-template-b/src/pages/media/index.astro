@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const all = await getCollection('media', ({ data }) => !data.draft);
+const entries = all.sort(
+  (a, b) => b.data.eventDate.valueOf() - a.data.eventDate.valueOf(),
+);
+
+const dateFmt = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+});
+
+const typeLabel: Record<string, string> = {
+  keynote: 'Keynote',
+  podcast: 'Podcast',
+  feature: 'Feature',
+  'op-ed': 'Op-ed',
+  talk: 'Talk',
+};
+
+const typeColor: Record<string, string> = {
+  keynote: 'bg-forest-teal/15 text-forest-teal',
+  podcast: 'bg-marigold/15 text-deep-brown',
+  feature: 'bg-dusty-rose/15 text-dusty-rose',
+  'op-ed': 'bg-burnt-sienna/15 text-burnt-sienna',
+  talk: 'bg-forest-teal/15 text-forest-teal',
+};
+---
+
+<BaseLayout
+  title="Speaking & Media"
+  description="Alaa Badr's speaking engagements, keynotes, podcast appearances, and media features on customer success, AI, cloud transformation, and community leadership."
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-b from-peach-cream/60 to-warm-white pb-16 md:pb-24 border-b border-warm-blush overflow-hidden">
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 pt-20 md:pt-28">
+      <p class="font-caveat text-2xl text-burnt-sienna mb-3">Where the ideas have been sharpened in public</p>
+      <h1 class="font-fraunces text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-6 leading-tight">
+        Speaking &amp; Media
+      </h1>
+      <p class="text-lg text-warm-umber leading-relaxed max-w-2xl">
+        Keynotes, podcast conversations, and published writing on customer success in the AI era, cloud transformation, leading global teams, and the Muslim-American experience.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-warm-white py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <ul class="space-y-10">
+        {entries.map((entry) => (
+          <li class="group border-b border-warm-blush/50 pb-10 last:border-none">
+            <p class="text-sm font-lato text-warm-umber/70 mb-2 flex items-center gap-3 flex-wrap">
+              <time datetime={entry.data.eventDate.toISOString()}>
+                {dateFmt.format(entry.data.eventDate)}
+              </time>
+              <span class={`px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide ${typeColor[entry.data.mediaType]}`}>
+                {typeLabel[entry.data.mediaType]}
+              </span>
+              <span>{entry.data.eventName}</span>
+            </p>
+            <h2 class="font-fraunces text-2xl md:text-3xl text-deep-brown mb-3 leading-snug">
+              <a href={`/media/${entry.id}/`} class="no-underline hover:text-burnt-sienna transition-colors">
+                {entry.data.title}
+              </a>
+            </h2>
+            <p class="text-warm-umber leading-relaxed">{entry.data.description}</p>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-16 bg-peach-cream/40 rounded-3xl p-8 md:p-10 border border-warm-blush/60 text-center">
+        <p class="font-caveat text-2xl text-burnt-sienna mb-2">Booking &amp; media</p>
+        <p class="text-warm-umber text-sm max-w-2xl mx-auto">
+          Open to keynotes, panels, and podcast conversations on customer success, AI-as-a-Service, cloud transformation, and leading teams across cultures. The best way to reach me is via <a href="https://www.linkedin.com/in/alaa-badr-" class="text-forest-teal">LinkedIn</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

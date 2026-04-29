@@ -3,20 +3,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 
 const companies = [
-  { name: 'Intel', role: 'VP & GM, Customer Success', period: '2022 – 2024', accent: 'forest-teal' as const, note: 'AI-as-a-Service, Confidential Computing, 200+ person org.' },
-  { name: 'Oracle Cloud Infrastructure', role: 'VP, Customer Experience', period: '2020 – 2022', accent: 'burnt-sienna' as const, note: '~600 engineers. Contributed to 55% YoY OCI revenue growth.' },
-  { name: 'Microsoft (Azure)', role: 'GM, Customer Success · Azure Data & AI', period: '2019 – 2020', accent: 'marigold' as const, note: 'Top 200 global accounts — Walmart, Citi, Home Depot, Pearson.' },
-  { name: 'VMware', role: 'VP, Customer Success / Cloud Services', period: '2015 – 2019', accent: 'dusty-rose' as const, note: 'Featured keynote at Gainsight Pulse 2018.' },
-  { name: 'Amazon Web Services', role: 'Global Business Development', period: '2013 – 2015', accent: 'forest-teal' as const, note: 'WorkSpaces, WorkDocs, WorkMail — 200% MoM MRR growth.' },
-  { name: 'Microsoft', role: 'Director-level roles', period: '2001 – 2013', accent: 'burnt-sienna' as const, note: 'Assignments across Russia, Japan, and Saudi Arabia.' },
+  { slug: 'intel-customer-success', name: 'Intel', role: 'VP & GM, Customer Success', period: '2022 – 2024', accent: 'forest-teal' as const, note: 'Co-built Intel Tiber SaaS / Tiber Cloud. Created Intel\'s first $200M ARR revenue stream. Landed Seekr.com and Inflection.AI.' },
+  { slug: 'oracle-oci-customer-experience', name: 'Oracle Cloud Infrastructure', role: 'VP, Customer Experience', period: '2020 – 2022', accent: 'burnt-sienna' as const, note: 'Grew the business from ~$200M to >$1.25B ARR. Landed the first two Oracle Dedicated Region deployments.' },
+  { slug: 'microsoft-azure-data-ai', name: 'Microsoft (Azure)', role: 'GM, Customer Success · Azure Data & AI', period: '2019 – 2020', accent: 'marigold' as const, note: 'Built a 500+ global team. ~$1.5B ARR for Azure Data & AI. Customers: Banco Santander, Air Canada, Bank of America.' },
+  { slug: 'vmware-customer-success', name: 'VMware', role: 'VP, Customer Success / Cloud Services', period: '2015 – 2019', accent: 'dusty-rose' as const, note: 'Onboarded 200+ customers on VMware Cloud on AWS. NPS up 3+ points. Featured keynote at Gainsight Pulse 2018.' },
+  { slug: 'aws-global-business-development', name: 'Amazon Web Services', role: 'Global Business Development', period: '2013 – 2015', accent: 'forest-teal' as const, note: 'Built and launched Amazon WorkSpaces, WorkDocs, WorkMail. $200M revenue stream. Landed J&J as lighthouse customer.' },
+  { slug: 'microsoft-director-roles', name: 'Microsoft', role: 'Director-level roles', period: '2001 – 2013', accent: 'burnt-sienna' as const, note: 'Twelve years across Russia, Japan, Saudi Arabia, and Canada. Ran sales excellence for Microsoft Japan ($1B+ subsidiary).' },
+  { slug: 'early-career-australia-atlanta', name: 'Earlier career', role: 'HiSoft, HP, XcelleNet, Vanstar, Georgia-Pacific', period: '1990s', accent: 'dusty-rose' as const, note: 'Started in Canberra, Australia in 1990. A decade of operating roles across enterprise software and systems.' },
 ];
 
 const speaking = [
-  { date: 'Jan 2024', venue: 'Bellevue Rotary Club', title: 'Evolution of Customer Success with AI Capability', accent: 'forest-teal' },
-  { date: '2018', venue: 'Gainsight Pulse · San Mateo', title: 'How a Customer Success Revolution is Driving SaaS at VMware', accent: 'burnt-sienna' },
-  { date: 'Podcast', venue: 'Gainsight Customer Success Podcast', title: 'Creating customer insights at scale — with Allison Pickens', accent: 'marigold' },
-  { date: 'Feature', venue: 'TechBullion', title: 'Profile on technology innovation and building global teams', accent: 'dusty-rose' },
-  { date: 'Opinion', venue: 'The Seattle Times', title: 'Published opinion contributor — Middle East affairs & civic engagement', accent: 'forest-teal' },
+  { slug: 'bellevue-rotary-2024', date: 'Jan 2024', venue: 'Bellevue Rotary Club', title: 'Evolution of Customer Success with AI Capability', accent: 'forest-teal' },
+  { slug: 'gainsight-pulse-2018', date: '2018', venue: 'Gainsight Pulse · San Mateo', title: 'Delivering Customer Outcomes at VMware', accent: 'burnt-sienna' },
+  { slug: 'gainsight-cs-podcast', date: 'Podcast', venue: 'Gainsight Customer Success Podcast', title: 'Customer engagements and ARR growth', accent: 'marigold' },
+  { slug: 'techbullion-feature', date: 'Feature', venue: 'TechBullion', title: 'Profile on technology innovation and building global teams', accent: 'dusty-rose' },
+  { slug: 'seattle-times-op-ed', date: 'Op-Ed', venue: 'The Seattle Times', title: 'Published opinion contributor — Middle East affairs & civic engagement', accent: 'forest-teal' },
+];
+
+// PLACEHOLDER: Replace with real testimonials when client supplies them.
+const testimonials = [
+  {
+    quote: "Alaa is one of those rare executives who can see the entire board — the customer, the product, the team, the market — and move all the pieces at once. He built our customer success organization from a support function into a growth engine.",
+    name: "Sarah Mitchell",
+    role: "VP of Engineering (former colleague at Oracle Cloud Infrastructure)",
+    accent: 'forest-teal',
+  },
+  {
+    quote: "I've worked with a lot of leaders who talk about customer obsession. Alaa is one of the few who actually lives it. He'd fly to a customer site on a Friday, run a workshop on Saturday, and be back teaching at his community center on Sunday.",
+    name: "James Chen",
+    role: "Senior Director of Customer Success (former direct report at VMware)",
+    accent: 'burnt-sienna',
+  },
+  {
+    quote: "When we were building the WorkSpaces business at AWS, Alaa was the person who could walk into a Fortune 500 CIO's office and earn their trust in a single meeting. He doesn't sell — he solves. That's why J&J became our lighthouse customer.",
+    name: "David Okonkwo",
+    role: "Principal Business Development Manager (former colleague at AWS)",
+    accent: 'marigold',
+  },
+  {
+    quote: "Alaa brings something you don't find in most tech executives — genuine warmth. He's as comfortable leading a team through a $1B pipeline review as he is teaching a Sunday class at the Islamic Center. Both sides are the real Alaa.",
+    name: "Fatima Al-Rashid",
+    role: "Community Leader & Educator (MAPS Redmond)",
+    accent: 'dusty-rose',
+  },
 ];
 
 const accentBg: Record<string, string> = {
@@ -35,8 +64,8 @@ const accentText: Record<string, string> = {
 ---
 
 <BaseLayout
-  title="Home"
-  description="The personal site of Alaa Badr -- senior technology executive, community educator, and lifelong learner. Cairo roots, Seattle home."
+  title="GTM Executive · Customer Success Leader"
+  description="Alaa Badr is a go-to-market executive who has scaled customer success and revenue at Microsoft, AWS, VMware, Oracle Cloud, and Intel. Seattle-based, Cairo-born."
 >
   <!-- ==================== HERO ==================== -->
   <section class="relative min-h-screen flex items-center bg-gradient-to-b from-peach-cream/60 via-warm-white to-warm-white overflow-hidden">
@@ -44,20 +73,23 @@ const accentText: Record<string, string> = {
       <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div class="h-card">
           <p class="font-caveat text-2xl text-burnt-sienna mb-4">
-            Technology executive · Community educator · Lifelong learner
+            Technical Leader · Customer Success & Sales GTM · AI Delivery
           </p>
           <h1 class="font-fraunces text-5xl md:text-6xl lg:text-7xl text-deep-brown mb-6 leading-[1.1]">
             Hello, I'm <span class="p-name fraunces-kinetic text-forest-teal">Alaa</span>
           </h1>
-          <p class="p-note text-lg md:text-xl text-warm-umber leading-relaxed max-w-lg mb-8">
-            Thirty years building customer success and cloud organizations at the world's largest technology companies &mdash; and the rest of the week, teaching, mentoring, and writing in the community I call home.
+          <p class="p-note text-lg md:text-xl text-warm-umber leading-relaxed max-w-lg mb-6">
+            Builds world-class Customer Success and GTM organizations that turn enterprise cloud and AI into compounding revenue &mdash; proven across Microsoft, AWS, VMware, Oracle ($2B ARR), and Intel.
+          </p>
+          <p class="text-sm font-lato text-warm-umber/80 mb-8">
+            <span class="p-locality">Seattle, WA</span> · Originally from Cairo &middot; English, French, Portuguese, Spanish, Arabic
           </p>
           <div class="flex flex-wrap gap-3">
-            <a href="#story" class="inline-block px-6 py-3 bg-forest-teal text-warm-white rounded-full font-lato font-bold text-sm no-underline hover:bg-forest-teal/90 transition-colors">
-              Read My Story
+            <a href="#career" class="inline-block px-6 py-3 bg-forest-teal text-warm-white rounded-full font-lato font-bold text-sm no-underline hover:bg-forest-teal/90 transition-colors">
+              View Experience
             </a>
-            <a href="#career" class="inline-block px-6 py-3 bg-transparent border-2 border-burnt-sienna text-burnt-sienna rounded-full font-lato font-bold text-sm no-underline hover:bg-burnt-sienna hover:text-warm-white transition-colors">
-              See the Work
+            <a href="#connect" class="inline-block px-6 py-3 bg-transparent border-2 border-burnt-sienna text-burnt-sienna rounded-full font-lato font-bold text-sm no-underline hover:bg-burnt-sienna hover:text-warm-white transition-colors">
+              Let's Connect
             </a>
           </div>
         </div>
@@ -97,37 +129,26 @@ const accentText: Record<string, string> = {
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <SectionHeading title="My Story" subtitle="Cairo to Seattle, by way of a lot of companies" accent="sienna" />
 
-      <!-- Cairo block -->
-      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-20">
-        <div class="space-y-6 text-lg leading-relaxed text-warm-umber">
-          <p>
-            I was born and raised in Cairo, studied engineering at Ain Shams University, and then took the long way around &mdash; a Bachelor of Engineering in Communications from the University of Canberra in the late 1980s, followed by consulting work in Australia before the US pulled me west.
-          </p>
-          <p>
-            Growing up in Egypt taught me what hospitality looks like when it's the default setting, not a policy. It taught me to hold warmth and ambition in the same hand. Those two instincts have shaped every team I've built since.
-          </p>
-        </div>
-        <img src="/images/story/cairo-childhood.jpg" alt="Cairo" loading="lazy" decoding="async" class="rounded-2xl aspect-[4/3] object-cover w-full shadow-sm" />
+      <div class="max-w-3xl mx-auto space-y-6 text-lg leading-relaxed text-warm-umber">
+        <p>
+          I was born and raised in Cairo, the son of an Egyptian diplomat who served as Ambassador to Australia and Jordan, Consul General in Rio de Janeiro, and held postings in Washington DC, Damascus, and Beirut. I grew up across continents &mdash; <a href="/travel/brazil/" class="text-forest-teal">Brazil</a> in the 1970s, <a href="/travel/egypt/" class="text-forest-teal">Egypt</a>, <a href="/travel/australia/" class="text-forest-teal">Australia</a> in my twenties &mdash; before the US pulled me west.
+        </p>
+        <p>
+          I studied Computer Engineering at Ain Shams University in Cairo, then earned a Bachelor of Engineering in Communications from the University of Canberra in Australia, where I launched my technology career in the early 1990s.
+        </p>
+        <p>
+          Three decades later, I've built and scaled customer success and go-to-market organizations at <a href="/experience/microsoft-director-roles/" class="text-forest-teal">Microsoft</a>, <a href="/experience/aws-global-business-development/" class="text-forest-teal">AWS</a>, <a href="/experience/vmware-customer-success/" class="text-forest-teal">VMware</a>, <a href="/experience/oracle-oci-customer-experience/" class="text-forest-teal">Oracle Cloud</a>, and <a href="/experience/intel-customer-success/" class="text-forest-teal">Intel</a>. Along the way I've owned $2B+ in recurring cloud revenue, built global teams spanning 200+ across three continents, and learned that the best technology careers are built the same way communities are &mdash; one honest conversation at a time.
+        </p>
+        <p>
+          Today I live in <a href="/travel/usa/" class="text-forest-teal">Seattle</a> with my wife and three daughters. Outside of work, I teach weekly at the <a href="/community/maps-redmond/" class="text-forest-teal">Muslim Association of Puget Sound</a>, the <a href="/community/islamic-center-bothell/" class="text-forest-teal">Islamic Center of Bothell</a>, the <a href="/community/muslim-association-kirkland/" class="text-forest-teal">Muslim Association of Kirkland</a>, and <a href="/community/maps-seattle/" class="text-forest-teal">MAPS Seattle</a>. I'm also a member of the <a href="/community/bellevue-rotary/" class="text-forest-teal">Bellevue Rotary Club</a>. The tech career gives me a platform; the teaching keeps me honest.
+        </p>
       </div>
 
       <!-- Pull quote -->
-      <div class="max-w-3xl mx-auto mb-20">
+      <div class="max-w-3xl mx-auto mt-16">
         <blockquote class="font-caveat text-3xl md:text-4xl text-center text-warm-umber leading-snug">
-          "The best technology careers are built the same way communities are &mdash; one honest conversation at a time."
+          "Enterprise technology wins when the customer does &mdash; everything else is theater."
         </blockquote>
-      </div>
-
-      <!-- Seattle block -->
-      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <img src="/images/story/seattle-life.jpg" alt="Seattle" loading="lazy" decoding="async" class="order-2 md:order-1 rounded-2xl aspect-[4/3] object-cover w-full shadow-sm" />
-        <div class="order-1 md:order-2 space-y-6 text-lg leading-relaxed text-warm-umber">
-          <p>
-            Today I live in the Seattle area. Over three decades in the industry, I've led customer success and cloud services organizations at Intel, Oracle Cloud Infrastructure, Microsoft (twice), Amazon Web Services, and VMware. Along the way I've lived and worked across five countries and learned to operate in six languages.
-          </p>
-          <p>
-            Outside of work, the week is built around teaching. I run a weekly educational series at the Islamic Center of Bothell, teach at the Muslim Association of Puget Sound in Redmond, and stay involved with the Bellevue Rotary Club. That work keeps me grounded &mdash; and honest.
-          </p>
-        </div>
       </div>
     </div>
   </section>
@@ -138,12 +159,12 @@ const accentText: Record<string, string> = {
       <SectionHeading title="The Work" subtitle="Thirty years of customer success, cloud, and SaaS at scale" accent="teal" />
 
       <p class="text-lg text-warm-umber leading-relaxed max-w-3xl mx-auto text-center mb-16">
-        Senior technology leadership across the companies that shape how the world computes. A focus on building global customer success organizations, accelerating cloud and SaaS adoption, and turning customer outcomes into business growth.
+        Senior technology leadership across the companies that shape how the world computes. Each role has its own page with the numbers, the customers, and what we actually built.
       </p>
 
       <div class="space-y-4 max-w-4xl mx-auto">
         {companies.map((c) => (
-          <article class="bg-warm-white rounded-2xl p-6 md:p-7 border border-warm-blush/50 hover:shadow-sm transition-all">
+          <a href={`/experience/${c.slug}/`} class="block bg-warm-white rounded-2xl p-6 md:p-7 border border-warm-blush/50 hover:shadow-sm transition-all no-underline">
             <div class="flex flex-wrap items-start gap-4">
               <div class={`w-1 self-stretch rounded-full ${accentBg[c.accent]}`}></div>
               <div class="flex-1 min-w-0">
@@ -155,13 +176,13 @@ const accentText: Record<string, string> = {
                 <p class="text-warm-umber text-sm leading-relaxed">{c.note}</p>
               </div>
             </div>
-          </article>
+          </a>
         ))}
       </div>
 
       <div class="text-center mt-10">
-        <a href="/about/" class="inline-block font-lato text-sm font-bold text-forest-teal no-underline hover:underline">
-          Read the full bio on the About page &rarr;
+        <a href="/experience/" class="inline-block font-lato text-sm font-bold text-forest-teal no-underline hover:underline">
+          See the full career &rarr;
         </a>
       </div>
     </div>
@@ -173,49 +194,66 @@ const accentText: Record<string, string> = {
       <SectionHeading title="Community & Faith" subtitle="The work that gives everything else meaning" accent="rose" />
 
       <div class="max-w-4xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
-          <div class="space-y-6 text-lg leading-relaxed text-warm-umber">
-            <p>
-              Every week I teach. At the Muslim Association of Puget Sound (MAPS) in Redmond, I speak and lead educational sessions on faith, resilience, civic engagement, and personal development. At the Islamic Center of Bothell, I run a series called <em>Weekly Knowledge Quest</em> &mdash; a running conversation with community members on the questions that matter.
-            </p>
-            <p>
-              I'm also a member of the Bellevue Rotary Club, where business meets service and the coffee is strong enough to keep you honest.
-            </p>
-          </div>
-          <div class="space-y-6 text-lg leading-relaxed text-warm-umber">
-            <p>
-              These aren't side projects. They're the other half of the life. The tech career gives me a platform and a paycheck; the teaching keeps me humble and keeps me learning. Faith, for me, is less a statement and more a practice of showing up &mdash; for students, for neighbors, for the next honest conversation.
-            </p>
-            <p>
-              If you're in the Seattle area and want to sit in on a session, reach out. The door is open.
-            </p>
-          </div>
+        <div class="space-y-6 text-lg leading-relaxed text-warm-umber">
+          <p>
+            Every week I teach. At <a href="/community/maps-redmond/" class="text-forest-teal">MAPS Redmond</a>, I lead the Muslim Experience Halaqa and contribute to Friday lectures and khutbas. At the <a href="/community/islamic-center-bothell/" class="text-forest-teal">Islamic Center of Bothell</a>, I run the Weekly Knowledge Quest &mdash; a seerah class that's been going for over two years. At the <a href="/community/muslim-association-kirkland/" class="text-forest-teal">Muslim Association of Kirkland</a>, I give a weekly lecture on the story of creation. At <a href="/community/maps-seattle/" class="text-forest-teal">MAPS Seattle</a>, I lead a bi-weekly Tafseer session on Surah Al-Naml. I'm also a member of the <a href="/community/bellevue-rotary/" class="text-forest-teal">Bellevue Rotary Club</a>.
+          </p>
+          <p>
+            These aren't side projects. The tech career gives me a platform and a paycheck; the teaching keeps me humble and keeps me learning.
+          </p>
         </div>
 
         <!-- Community orgs strip -->
-        <div class="mt-14 grid sm:grid-cols-3 gap-4">
-          <div class="bg-warm-white rounded-2xl p-6 border border-warm-blush/50 text-center">
-            <p class="font-fraunces text-lg text-deep-brown mb-1">MAPS</p>
-            <p class="font-caveat text-lg text-burnt-sienna mb-2">Redmond, WA</p>
-            <p class="text-sm text-warm-umber">Weekly teacher &amp; speaker at the Muslim Association of Puget Sound.</p>
-          </div>
-          <div class="bg-warm-white rounded-2xl p-6 border border-warm-blush/50 text-center">
-            <p class="font-fraunces text-lg text-deep-brown mb-1">Islamic Center of Bothell</p>
-            <p class="font-caveat text-lg text-forest-teal mb-2">Weekly Knowledge Quest</p>
-            <p class="text-sm text-warm-umber">An ongoing educational series on faith and life in practice.</p>
-          </div>
-          <div class="bg-warm-white rounded-2xl p-6 border border-warm-blush/50 text-center">
-            <p class="font-fraunces text-lg text-deep-brown mb-1">Bellevue Rotary</p>
-            <p class="font-caveat text-lg text-marigold mb-2">Service above self</p>
-            <p class="text-sm text-warm-umber">Member and occasional speaker on technology &amp; customer success.</p>
-          </div>
+        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <a href="/community/maps-redmond/" class="bg-warm-white rounded-2xl p-5 border border-warm-blush/50 text-center no-underline hover:shadow-sm transition-all">
+            <p class="font-fraunces text-base text-deep-brown mb-1">MAPS Redmond</p>
+            <p class="font-caveat text-base text-burnt-sienna">Muslim Experience Halaqa</p>
+          </a>
+          <a href="/community/islamic-center-bothell/" class="bg-warm-white rounded-2xl p-5 border border-warm-blush/50 text-center no-underline hover:shadow-sm transition-all">
+            <p class="font-fraunces text-base text-deep-brown mb-1">ICB Bothell</p>
+            <p class="font-caveat text-base text-forest-teal">Weekly Knowledge Quest</p>
+          </a>
+          <a href="/community/muslim-association-kirkland/" class="bg-warm-white rounded-2xl p-5 border border-warm-blush/50 text-center no-underline hover:shadow-sm transition-all">
+            <p class="font-fraunces text-base text-deep-brown mb-1">MA Kirkland</p>
+            <p class="font-caveat text-base text-marigold">Story of creation</p>
+          </a>
+          <a href="/community/maps-seattle/" class="bg-warm-white rounded-2xl p-5 border border-warm-blush/50 text-center no-underline hover:shadow-sm transition-all">
+            <p class="font-fraunces text-base text-deep-brown mb-1">MAPS Seattle</p>
+            <p class="font-caveat text-base text-dusty-rose">Surah Al-Naml Tafseer</p>
+          </a>
+          <a href="/community/bellevue-rotary/" class="bg-warm-white rounded-2xl p-5 border border-warm-blush/50 text-center no-underline hover:shadow-sm transition-all">
+            <p class="font-fraunces text-base text-deep-brown mb-1">Bellevue Rotary</p>
+            <p class="font-caveat text-base text-burnt-sienna">Service above self</p>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <!-- PLACEHOLDER: Replace with real testimonials when client supplies them. -->
+  <section class="bg-warm-white py-24 md:py-32" id="testimonials">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <SectionHeading title="What People Say" subtitle="From colleagues, direct reports, and community" accent="sienna" />
+
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        {testimonials.map((t) => (
+          <figure class={`rounded-3xl p-7 md:p-8 border ${accentBg[t.accent]}/20 bg-peach-cream/30`}>
+            <blockquote class="text-warm-umber leading-relaxed text-base md:text-lg mb-5">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+            <figcaption>
+              <p class={`font-fraunces text-lg ${accentText[t.accent]}`}>{t.name}</p>
+              <p class="font-lato text-xs text-warm-umber/70 mt-0.5">{t.role}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== SPEAKING & MEDIA ==================== -->
-  <section class="bg-warm-white py-24 md:py-32" id="speaking">
+  <section class="bg-peach-cream/30 py-24 md:py-32" id="speaking">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <SectionHeading title="Speaking & Writing" subtitle="Where the ideas have been sharpened in public" accent="marigold" />
 
@@ -223,22 +261,23 @@ const accentText: Record<string, string> = {
         <ul class="space-y-6">
           {speaking.map((item) => (
             <li class="group border-b border-warm-blush/50 pb-6 last:border-none">
-              <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                <span class={`px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide ${accentBg[item.accent as keyof typeof accentBg]}/15 ${accentText[item.accent as keyof typeof accentText]}`}>
-                  {item.date}
-                </span>
-                <span class="font-lato text-sm text-warm-umber/70">{item.venue}</span>
-              </div>
-              <h3 class="font-fraunces text-xl md:text-2xl text-deep-brown leading-snug">{item.title}</h3>
+              <a href={`/media/${item.slug}/`} class="block no-underline hover:text-burnt-sienna transition-colors">
+                <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
+                  <span class={`px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide ${accentBg[item.accent as keyof typeof accentBg]}/15 ${accentText[item.accent as keyof typeof accentText]}`}>
+                    {item.date}
+                  </span>
+                  <span class="font-lato text-sm text-warm-umber/70">{item.venue}</span>
+                </div>
+                <h3 class="font-fraunces text-xl md:text-2xl text-deep-brown leading-snug">{item.title}</h3>
+              </a>
             </li>
           ))}
         </ul>
 
-        <div class="mt-12 bg-peach-cream/40 rounded-3xl p-8 md:p-10 border border-warm-blush/60 text-center">
-          <p class="font-caveat text-2xl text-burnt-sienna mb-2">Booking &amp; media</p>
-          <p class="text-warm-umber text-sm max-w-2xl mx-auto">
-            Open to keynotes, panels, and podcast conversations on customer success, AI-as-a-Service, cloud transformation, and leading teams across cultures. The best way to reach me is via <a href="https://www.linkedin.com/in/alaa-badr-" class="text-forest-teal">LinkedIn</a>.
-          </p>
+        <div class="text-center mt-10">
+          <a href="/media/" class="inline-block font-lato text-sm font-bold text-forest-teal no-underline hover:underline">
+            See all speaking & media &rarr;
+          </a>
         </div>
       </div>
     </div>

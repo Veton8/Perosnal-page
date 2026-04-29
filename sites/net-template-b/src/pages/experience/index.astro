@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const all = await getCollection('experience', ({ data }) => !data.draft);
+const entries = all.sort((a, b) => a.data.order - b.data.order);
+
+const accentBg = ['bg-forest-teal', 'bg-burnt-sienna', 'bg-marigold', 'bg-dusty-rose'];
+const accentText = ['text-forest-teal', 'text-burnt-sienna', 'text-deep-brown', 'text-dusty-rose'];
+---
+
+<BaseLayout
+  title="Career"
+  description="Alaa Badr's full career timeline: Intel, Oracle Cloud, Microsoft Azure, VMware, AWS, and 12 years at Microsoft across Russia, Japan, Saudi Arabia, and Canada."
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-b from-peach-cream/60 to-warm-white pb-16 md:pb-24 border-b border-warm-blush overflow-hidden">
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 pt-20 md:pt-28">
+      <p class="font-caveat text-2xl text-burnt-sienna mb-3">Three decades, six companies</p>
+      <h1 class="font-fraunces text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-6 leading-tight">
+        Career &amp; Experience
+      </h1>
+      <p class="text-lg text-warm-umber leading-relaxed max-w-2xl">
+        Senior leadership across Intel, Oracle Cloud, Microsoft, VMware, AWS, and the early-career years that made it all possible. Each role gets its own page with the numbers, the customers, and what we actually built.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-warm-white py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <ul class="space-y-4">
+        {entries.map((entry, i) => (
+          <li>
+            <a
+              href={`/experience/${entry.id}/`}
+              class="block bg-warm-white rounded-2xl p-6 md:p-7 border border-warm-blush/50 hover:shadow-sm transition-all no-underline"
+            >
+              <div class="flex flex-wrap items-start gap-4">
+                <div class={`w-1 self-stretch rounded-full ${accentBg[i % accentBg.length]}`}></div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-1">
+                    <h2 class="font-fraunces text-xl md:text-2xl text-deep-brown">{entry.data.company}</h2>
+                    <span class="font-lato text-sm text-warm-umber/70">{entry.data.years}</span>
+                  </div>
+                  <p class={`font-lato font-bold text-sm ${accentText[i % accentText.length]} mb-2`}>{entry.data.role}</p>
+                  <p class="text-warm-umber text-sm leading-relaxed">{entry.data.description}</p>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,14 +1,13 @@
 ---
-// Anchor links (homepage sections)
-const anchorLinks = [
-  { href: '#story', label: 'Story' },
-  { href: '#career', label: 'Work' },
-  { href: '#community', label: 'Community' },
-  { href: '#speaking', label: 'Speaking' },
-];
+// Anchor links (homepage sections) — disabled now that each topic has its own page
+const anchorLinks: { href: string; label: string }[] = [];
 
 // Standalone routes
 const pageLinks = [
+  { href: '/experience/', label: 'Experience' },
+  { href: '/travel/', label: 'Travel' },
+  { href: '/community/', label: 'Community' },
+  { href: '/media/', label: 'Media' },
   { href: '/writing/', label: 'Writing' },
   { href: '/now/', label: 'Now' },
   { href: '/about/', label: 'About' },

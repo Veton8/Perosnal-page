@@ -18,4 +18,62 @@ const writing = defineCollection({
   }),
 });
 
-export const collections = { writing };
+// Career roles — one entry per company/role for SEO indexing.
+const experience = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/experience' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    company: z.string(),
+    role: z.string(),
+    years: z.string(),
+    order: z.number(),
+    image: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+// Travel — one entry per country lived/worked in.
+const travel = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/travel' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    country: z.string(),
+    years: z.string().optional(),
+    order: z.number(),
+    image: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+// Community — one entry per organization Alaa serves.
+const community = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/community' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    organization: z.string(),
+    location: z.string(),
+    order: z.number(),
+    image: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+// Media — speaking engagements, podcasts, op-eds.
+const media = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/media' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    eventName: z.string(),
+    eventDate: z.coerce.date(),
+    mediaType: z.enum(['keynote', 'podcast', 'feature', 'op-ed', 'talk']),
+    externalUrl: z.string().optional(),
+    image: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { writing, experience, travel, community, media };

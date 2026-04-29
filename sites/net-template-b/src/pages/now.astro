@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Update this date whenever you revise the page — that's the whole point.
-const lastUpdated = new Date('2026-04-22');
+const lastUpdated = new Date('2026-04-27');
 const dateFmt = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
@@ -14,19 +14,19 @@ const blocks = [
     icon: '◐',
     title: 'Work',
     accent: 'forest-teal',
-    body: "Most recently VP & General Manager of Customer Success at Intel (2022–2024), focused on AI-as-a-Service and Confidential Computing. Currently evaluating what comes next — advisory, board, or the next operating role — and spending time sharpening the thinking on where customer success goes in the AI era.",
+    body: "Most recently VP & GM of Customer Success at <a href=\"/experience/intel-customer-success/\" class=\"text-forest-teal underline\">Intel</a> (2022–2024), focused on AI-as-a-Service and Confidential Computing. Currently evaluating what comes next — advisory, board, or the next operating role — and spending time sharpening the thinking on where customer success goes in the AI era.",
   },
   {
     icon: '◑',
     title: 'Teaching',
     accent: 'burnt-sienna',
-    body: "Every week, teaching at the Muslim Association of Puget Sound in Redmond and leading the Weekly Knowledge Quest series at the Islamic Center of Bothell. Topics span faith, resilience, civic engagement, and personal development.",
+    body: "Every week, teaching at <a href=\"/community/maps-redmond/\" class=\"text-burnt-sienna underline\">MAPS Redmond</a>, the <a href=\"/community/islamic-center-bothell/\" class=\"text-burnt-sienna underline\">Islamic Center of Bothell</a> (Weekly Knowledge Quest seerah class), the <a href=\"/community/muslim-association-kirkland/\" class=\"text-burnt-sienna underline\">Muslim Association of Kirkland</a> (story of creation lecture series), and <a href=\"/community/maps-seattle/\" class=\"text-burnt-sienna underline\">MAPS Seattle</a> (bi-weekly Tafseer on Surah Al-Naml).",
   },
   {
     icon: '◒',
     title: 'Speaking',
     accent: 'dusty-rose',
-    body: "Open to keynotes, panels, and podcast guest spots on customer success, AI-as-a-Service, cloud transformation, and leading cross-cultural teams. Most recent talk: Bellevue Rotary, January 2024 — Evolution of Customer Success with AI Capability.",
+    body: "Open to keynotes, panels, and podcast guest spots on customer success, AI-as-a-Service, cloud transformation, and leading cross-cultural teams. Most recent: <a href=\"/media/bellevue-rotary-2024/\" class=\"text-dusty-rose underline\">Bellevue Rotary, January 2024 — Evolution of Customer Success with AI Capability</a>.",
   },
   {
     icon: '◓',
@@ -44,7 +44,7 @@ const blocks = [
     icon: '◑',
     title: 'Community',
     accent: 'burnt-sienna',
-    body: "Active with the Bellevue Rotary Club. Mentoring younger professionals navigating global careers and cross-cultural leadership. If you're early-career and want a thirty-minute conversation, the door is open — LinkedIn is the best place to ask.",
+    body: "Active with the <a href=\"/community/bellevue-rotary/\" class=\"text-burnt-sienna underline\">Bellevue Rotary Club</a>. Mentoring younger professionals navigating global careers and cross-cultural leadership. If you're early-career and want a thirty-minute conversation, the door is open — LinkedIn is the best place to ask.",
   },
 ];
 
@@ -89,7 +89,7 @@ const accentClasses: Record<string, string> = {
               <span class={`text-3xl ${accentClasses[b.accent].split(' ')[0]}`}>{b.icon}</span>
               <h2 class="font-fraunces text-2xl text-deep-brown">{b.title}</h2>
             </div>
-            <p class="text-warm-umber leading-relaxed">{b.body}</p>
+            <p class="text-warm-umber leading-relaxed" set:html={b.body}></p>
           </article>
         ))}
       </div>

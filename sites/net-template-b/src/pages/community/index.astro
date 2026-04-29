@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const all = await getCollection('community', ({ data }) => !data.draft);
+const entries = all.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Community"
+  description="How Alaa Badr serves the Seattle-area Muslim community through teaching at MAPS Redmond, Islamic Center of Bothell, MAPS Seattle, Muslim Association of Kirkland, and the Bellevue Rotary Club."
+>
+  <!-- Hero -->
+  <section class="relative bg-pale-sage pb-16 md:pb-24 border-b border-warm-blush overflow-hidden">
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 pt-20 md:pt-28">
+      <p class="font-caveat text-2xl text-burnt-sienna mb-3">The other half of the life</p>
+      <h1 class="font-fraunces text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-6 leading-tight">
+        Community &amp; Teaching
+      </h1>
+      <p class="text-lg text-warm-umber leading-relaxed max-w-2xl">
+        Every week I teach. The tech career gives me a platform; the teaching keeps me honest. These are the five organizations where I show up.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-warm-white py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <ul class="space-y-4">
+        {entries.map((entry) => (
+          <li>
+            <a
+              href={`/community/${entry.id}/`}
+              class="block bg-warm-white rounded-2xl p-6 md:p-7 border border-warm-blush/50 hover:shadow-sm hover:border-forest-teal/40 transition-all no-underline"
+            >
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-1">
+                <h2 class="font-fraunces text-xl md:text-2xl text-deep-brown">{entry.data.organization}</h2>
+                <span class="font-caveat text-lg text-burnt-sienna">{entry.data.location}</span>
+              </div>
+              <p class="font-lato font-bold text-sm text-forest-teal mb-2">{entry.data.title}</p>
+              <p class="text-warm-umber text-sm leading-relaxed">{entry.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

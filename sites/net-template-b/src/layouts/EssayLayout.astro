@@ -4,29 +4,51 @@ import BaseLayout from './BaseLayout.astro';
 interface Props {
   title: string;
   description: string;
-  date: Date;
+  date?: Date;
   updated?: Date;
   tags?: string[];
   category?: string;
   image?: string;
+  backHref?: string;
+  backLabel?: string;
+  eyebrow?: string;
 }
 
-const { title, description, date, updated, tags = [], category, image } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  updated,
+  tags = [],
+  category,
+  image,
+  backHref = '/writing',
+  backLabel = 'Back to all writing',
+  eyebrow,
+} = Astro.props;
 
 const dateFmt = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
+
+const headerLabel = eyebrow ?? category;
 ---
 
-<BaseLayout title={title} description={description} type="article" image={image} publishedDate={date.toISOString()}>
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  image={image}
+  publishedDate={date ? date.toISOString() : undefined}
+>
   <article class="h-entry bg-warm-white">
     <!-- Hero -->
     <header class="bg-gradient-to-b from-peach-cream/60 to-warm-white border-b border-warm-blush/60 py-20 md:py-28">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        {category && (
-          <p class="font-caveat text-2xl text-burnt-sienna mb-3 p-category">{category}</p>
+        {headerLabel && (
+          <p class="font-caveat text-2xl text-burnt-sienna mb-3 p-category">{headerLabel}</p>
         )}
         <h1 class="p-name font-fraunces text-4xl md:text-5xl lg:text-6xl text-deep-brown mb-6 leading-[1.1]">
           {title}
@@ -34,15 +56,17 @@ const dateFmt = new Intl.DateTimeFormat('en-US', {
         <p class="p-summary text-lg md:text-xl text-warm-umber leading-relaxed max-w-2xl">
           {description}
         </p>
-        <p class="mt-6 text-sm font-lato text-warm-umber/80">
-          <time class="dt-published" datetime={date.toISOString()}>{dateFmt.format(date)}</time>
-          {updated && (
-            <>
-              {' · Updated '}
-              <time class="dt-updated" datetime={updated.toISOString()}>{dateFmt.format(updated)}</time>
-            </>
-          )}
-        </p>
+        {date && (
+          <p class="mt-6 text-sm font-lato text-warm-umber/80">
+            <time class="dt-published" datetime={date.toISOString()}>{dateFmt.format(date)}</time>
+            {updated && (
+              <>
+                {' · Updated '}
+                <time class="dt-updated" datetime={updated.toISOString()}>{dateFmt.format(updated)}</time>
+              </>
+            )}
+          </p>
+        )}
       </div>
     </header>
 
@@ -66,8 +90,8 @@ const dateFmt = new Intl.DateTimeFormat('en-US', {
       )}
 
       <div class="max-w-prose mx-auto px-4 sm:px-6 mt-12">
-        <a href="/writing" class="font-caveat text-xl text-forest-teal no-underline">
-          &larr; Back to all writing
+        <a href={backHref} class="font-caveat text-xl text-forest-teal no-underline">
+          &larr; {backLabel}
         </a>
       </div>
     </div>

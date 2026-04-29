@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import EssayLayout from '../../layouts/EssayLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('media', ({ data }) => !data.draft);
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const typeLabel: Record<string, string> = {
+  keynote: 'Keynote',
+  podcast: 'Podcast',
+  feature: 'Feature',
+  'op-ed': 'Op-ed',
+  talk: 'Talk',
+};
+---
+
+<EssayLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  date={entry.data.eventDate}
+  image={entry.data.image}
+  eyebrow={`${typeLabel[entry.data.mediaType]} · ${entry.data.eventName}`}
+  backHref="/media"
+  backLabel="Back to speaking & media"
+>
+  <Content />
+</EssayLayout>

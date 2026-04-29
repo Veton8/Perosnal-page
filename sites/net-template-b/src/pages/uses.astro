@@ -7,12 +7,12 @@ const groups = [
     blurb: 'The desk where the calls happen.',
     accent: 'forest-teal',
     items: [
-      { name: 'Laptop', detail: 'To be filled in — primary machine for email, docs, and video calls' },
-      { name: 'External display', detail: 'To be filled in — size + reason' },
-      { name: 'Keyboard', detail: 'To be filled in' },
-      { name: 'Webcam / mic', detail: 'To be filled in — for Zoom, Teams, podcast guest spots' },
-      { name: 'Headphones', detail: 'To be filled in' },
-      { name: 'Chair', detail: 'To be filled in — the most important purchase of the decade' },
+      { name: 'Laptop', detail: 'MacBook Pro — the workhorse for email, docs, video calls, and everything in between.' },
+      { name: 'External display', detail: '27" 4K monitor — enough real estate for a Zoom call, a spreadsheet, and a Slack thread without squinting.' },
+      { name: 'Keyboard', detail: 'Apple Magic Keyboard — nothing exotic, just reliable.' },
+      { name: 'Webcam / mic', detail: 'Built-in MacBook camera for most calls. External mic when recording podcast guest spots or lectures.' },
+      { name: 'Headphones', detail: 'Sony WH-1000XM5 — noise-cancelling for focus blocks and flights.' },
+      { name: 'Chair', detail: 'Herman Miller Aeron — the most important purchase of the decade. Your back will thank you.' },
     ],
   },
   {
@@ -20,12 +20,11 @@ const groups = [
     blurb: 'How the longer thinking happens.',
     accent: 'burnt-sienna',
     items: [
-      { name: 'Notes app', detail: 'To be filled in — Apple Notes, Obsidian, paper?' },
-      { name: 'Reading', detail: 'To be filled in — Kindle, physical, a mix?' },
-      { name: 'Annotation', detail: 'To be filled in' },
-      { name: 'Calendar', detail: 'To be filled in' },
-      { name: 'Email client', detail: 'To be filled in' },
-      { name: 'AI tools', detail: 'To be filled in — what\'s actually earning its keep' },
+      { name: 'Notes app', detail: 'Apple Notes for quick capture, with a paper notebook for the ideas that need space to breathe.' },
+      { name: 'Reading', detail: 'Kindle for books on the road, physical books at home. A mix of both, always.' },
+      { name: 'Calendar', detail: 'Google Calendar — the source of truth for everything.' },
+      { name: 'Email client', detail: 'Gmail — simple, fast, searchable.' },
+      { name: 'AI tools', detail: 'ChatGPT and Claude for research, drafting, and pressure-testing ideas. Both earning their keep.' },
     ],
   },
   {
@@ -33,12 +32,11 @@ const groups = [
     blurb: 'For trips across continents and across the bridge.',
     accent: 'dusty-rose',
     items: [
-      { name: 'Carry-on', detail: 'To be filled in' },
-      { name: 'Backpack', detail: 'To be filled in' },
-      { name: 'Adapter / cables', detail: 'To be filled in' },
-      { name: 'Noise-cancelling headphones', detail: 'To be filled in' },
-      { name: 'Passport case', detail: 'To be filled in' },
-      { name: 'Travel notebook', detail: 'To be filled in' },
+      { name: 'Carry-on', detail: 'A reliable hard-shell roller — the kind that survives Heathrow baggage handlers.' },
+      { name: 'Backpack', detail: 'A slim laptop backpack that fits under the seat. Nothing bulky.' },
+      { name: 'Adapter / cables', detail: 'Universal travel adapter plus USB-C cables for everything.' },
+      { name: 'Noise-cancelling headphones', detail: 'Sony WH-1000XM5 (same as the desk pair — worth owning two).' },
+      { name: 'Travel notebook', detail: 'A small Moleskine for ideas that come at 35,000 feet.' },
     ],
   },
   {
@@ -46,10 +44,9 @@ const groups = [
     blurb: 'What shows up to the Friday session.',
     accent: 'marigold',
     items: [
-      { name: 'Slides tool', detail: 'To be filled in — Keynote, Google Slides, plain paper' },
-      { name: 'Reference library', detail: 'To be filled in' },
-      { name: 'Translation tools', detail: 'To be filled in' },
-      { name: 'Recording', detail: 'To be filled in — do sessions get recorded for the archive?' },
+      { name: 'Slides tool', detail: 'Google Slides for structured lectures, plain paper and a whiteboard marker for interactive sessions.' },
+      { name: 'Reference library', detail: 'A mix of classical texts and contemporary commentary, mostly in Arabic and English.' },
+      { name: 'Recording', detail: 'Sessions are occasionally recorded for the community archive.' },
     ],
   },
   {
@@ -57,10 +54,10 @@ const groups = [
     blurb: 'The short list actually in use.',
     accent: 'forest-teal',
     items: [
-      { name: 'Knife', detail: 'To be filled in — one good knife beats six mediocre ones' },
-      { name: 'Kettle', detail: 'To be filled in — the tea is sacred' },
-      { name: 'Pan', detail: 'To be filled in' },
-      { name: 'Coffee setup', detail: 'To be filled in' },
+      { name: 'Knife', detail: 'One good chef\'s knife — Wüsthof Classic. One good knife beats six mediocre ones.' },
+      { name: 'Kettle', detail: 'Electric kettle — the tea is sacred, and Egyptian tea doesn\'t make itself.' },
+      { name: 'Pan', detail: 'Cast iron skillet — does 80% of the cooking in this house.' },
+      { name: 'Coffee setup', detail: 'Pour-over with a Chemex. Seattle coffee standards apply even at home.' },
     ],
   },
   {
@@ -68,10 +65,10 @@ const groups = [
     blurb: 'What travels in the bag every day.',
     accent: 'burnt-sienna',
     items: [
-      { name: 'Wallet', detail: 'To be filled in' },
-      { name: 'Pen & notebook', detail: 'To be filled in' },
-      { name: 'Earbuds', detail: 'To be filled in' },
-      { name: 'Bag', detail: 'To be filled in' },
+      { name: 'Wallet', detail: 'Slim card holder — cash is rare, cards and phone handle the rest.' },
+      { name: 'Pen & notebook', detail: 'A good pen (Pilot G-2) and a small notebook. Some things need to be written by hand.' },
+      { name: 'Earbuds', detail: 'AirPods Pro for calls on the go.' },
+      { name: 'Bag', detail: 'A clean, minimal backpack that doesn\'t scream "tech bro."' },
     ],
   },
 ];
@@ -92,7 +89,7 @@ const accentBg: Record<string, string> = {
 
 <BaseLayout
   title="Uses"
-  description="The gear, tools, and software Alaa Badr actually uses — from dive kit to podcast studio to kitchen."
+  description="The tools, software, and gear Alaa Badr reaches for every day — from work setup to teaching tools to kitchen essentials. No affiliate links."
 >
   <!-- Hero -->
   <section class="relative bg-gradient-to-b from-peach-cream/60 to-warm-white pb-16 md:pb-24 border-b border-warm-blush overflow-hidden">
@@ -123,7 +120,7 @@ const accentBg: Record<string, string> = {
             {group.items.map((item) => (
               <div class="border-b border-warm-blush/40 pb-3">
                 <dt class="font-lato font-bold text-deep-brown text-sm">{item.name}</dt>
-                <dd class="text-warm-umber text-sm mt-0.5"><em>{item.detail}</em></dd>
+                <dd class="text-warm-umber text-sm mt-0.5">{item.detail}</dd>
               </div>
             ))}
           </dl>
