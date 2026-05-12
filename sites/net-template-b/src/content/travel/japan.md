@@ -3,6 +3,8 @@ title: "Japan — Business and Culture"
 description: "Alaa Badr on 10+ trips to Tokyo, Okinawa, and Kyoto — coaching customers at NTT and Toyota, building partner capacity, and experiencing Japanese culture."
 country: "Japan"
 order: 2
+image: "/images/travel/japan/mount-fuji.jpg"
+imageCredit: 'Mount Fuji, seen from Ōwakudani. Photo by <a href="https://commons.wikimedia.org/wiki/File:View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg">Suicasmo</a>, CC BY-SA 4.0.'
 ---
 
 I've been to Japan over ten times — Tokyo, Okinawa, and Kyoto — mostly on business and twice for pleasure.

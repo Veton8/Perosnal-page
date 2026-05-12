@@ -9,6 +9,8 @@ interface Props {
   tags?: string[];
   category?: string;
   image?: string;
+  /** Optional caption / credit rendered under the hero image (HTML allowed). */
+  imageCredit?: string;
   backHref?: string;
   backLabel?: string;
   eyebrow?: string;
@@ -22,6 +24,7 @@ const {
   tags = [],
   category,
   image,
+  imageCredit,
   backHref = '/writing',
   backLabel = 'Back to all writing',
   eyebrow,
@@ -69,6 +72,23 @@ const headerLabel = eyebrow ?? category;
         )}
       </div>
     </header>
+
+    {image && (
+      <div class="bg-warm-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 -mt-8 md:-mt-12 flex flex-col items-center">
+          <img
+            src={image}
+            alt={title}
+            loading="eager"
+            decoding="async"
+            class="u-photo rounded-2xl shadow-md w-auto max-w-full max-h-[640px] object-contain"
+          />
+          {imageCredit && (
+            <p class="font-lato text-xs text-warm-umber/70 mt-3 text-center italic max-w-2xl" set:html={imageCredit}></p>
+          )}
+        </div>
+      </div>
+    )}
 
     <!-- Body -->
     <div class="py-16 md:py-20">
@@ -125,5 +145,20 @@ const headerLabel = eyebrow ?? category;
   .prose-essay code {
     @apply bg-peach-cream/80 rounded px-1.5 py-0.5 text-sm;
     font-family: ui-monospace, monospace;
+  }
+  .prose-essay img {
+    @apply w-full rounded-2xl shadow-sm my-8;
+  }
+  .prose-essay figure {
+    @apply my-10;
+  }
+  .prose-essay figure img {
+    @apply my-0;
+  }
+  .prose-essay figcaption {
+    @apply font-lato text-sm text-warm-umber/70 mt-3 text-center italic;
+  }
+  .prose-essay figcaption a {
+    @apply text-warm-umber/70 underline decoration-warm-blush/60;
   }
 </style>

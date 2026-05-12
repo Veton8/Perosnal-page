@@ -3,6 +3,8 @@ title: "USA — Seattle Is Home"
 description: "Alaa Badr on building a career and family in Seattle — the city with the most coffee shops per capita, the best tech scene, and a community of hundreds of friends."
 country: "United States"
 order: 9
+image: "/images/travel/usa/seattle-rainier.jpg"
+imageCredit: 'Seattle skyline beneath Mount Rainier. Photo by <a href="https://commons.wikimedia.org/wiki/File:Mt._Rainier_%5E_Seattle_-_panoramio.jpg">nick hoke</a>, CC BY 3.0.'
 ---
 
 **Cities:** Seattle, Bay Area, Atlanta, Falls Church (VA)

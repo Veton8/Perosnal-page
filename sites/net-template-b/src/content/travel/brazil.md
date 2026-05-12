@@ -4,6 +4,8 @@ description: "Alaa Badr on growing up in Rio de Janeiro and Brasilia as the son 
 country: "Brazil"
 years: "Mid-1970s"
 order: 8
+image: "/images/travel/brazil/rio-cidade-maravilhosa.jpg"
+imageCredit: 'Rio de Janeiro — Christ the Redeemer, Sugarloaf, and Guanabara Bay. Photo by <a href="https://commons.wikimedia.org/wiki/File:Cidade_Maravilhosa.jpg">Rafael Rabello de Barros</a>, CC BY-SA 3.0.'
 ---
 
 **Cities:** Brasilia, Rio de Janeiro

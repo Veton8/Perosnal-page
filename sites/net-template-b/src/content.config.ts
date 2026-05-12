@@ -43,6 +43,8 @@ const travel = defineCollection({
     years: z.string().optional(),
     order: z.number(),
     image: z.string().optional(),
+    /** Caption / credit displayed under the hero image. May contain HTML for links. */
+    imageCredit: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

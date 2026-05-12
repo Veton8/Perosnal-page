@@ -23,8 +23,8 @@ const isHome = currentPath === '/' || currentPath === '';
       Alaa Badr
     </a>
 
-    <!-- Desktop links -->
-    <ul class="hidden md:flex items-center gap-7 list-none m-0 p-0">
+    <!-- Desktop links (visible at sm+, wraps if needed) -->
+    <ul class="hidden sm:flex flex-wrap items-center justify-end gap-x-5 gap-y-2 list-none m-0 p-0">
       {anchorLinks.map((link) => (
         <li>
           <a
@@ -52,7 +52,7 @@ const isHome = currentPath === '/' || currentPath === '';
     <!-- Mobile hamburger -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer"
+      class="sm:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer"
       aria-label="Toggle menu"
       aria-expanded="false"
     >
@@ -63,7 +63,7 @@ const isHome = currentPath === '/' || currentPath === '';
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden bg-warm-white border-t border-warm-blush">
+  <div id="mobile-menu" class="sm:hidden hidden bg-warm-white border-t border-warm-blush">
     <ul class="list-none m-0 p-4 flex flex-col gap-3">
       {anchorLinks.map((link) => (
         <li>

@@ -3,6 +3,8 @@ title: "Saudi Arabia — Building Microsoft Consulting in the Middle East"
 description: "Alaa Badr on building and running Microsoft Consulting across the Middle East and Africa from Riyadh — Aramco, STC, and Citibank."
 country: "Saudi Arabia"
 order: 6
+image: "/images/travel/saudi-arabia/riyadh-skyline.jpg"
+imageCredit: 'The Riyadh skyline over the Al-Olaya district. Photo by <a href="https://commons.wikimedia.org/wiki/File:Riyadh_Skyline.jpg">B.alotaby</a>, CC BY-SA 4.0.'
 ---
 
 I was moved from the US (Charlotte, NC) to Riyadh to build and run Microsoft Consulting in the Middle East and Africa.

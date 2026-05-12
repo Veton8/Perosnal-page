@@ -4,6 +4,8 @@ description: "How Alaa Badr launched his technology career at HiSoft in Canberra
 country: "Australia"
 years: "1990 – 1992"
 order: 7
+image: "/images/travel/australia/canberra-panorama.jpg"
+imageCredit: 'Canberra from Mount Ainslie. Photo by <a href="https://commons.wikimedia.org/wiki/File:Canberra_panorama_from_Mount_Ainslie.jpg">Robert Bernardi</a>, CC BY 2.0.'
 ---
 
 Australia is where it all began. After university in Canberra, I stayed and launched my technology career.

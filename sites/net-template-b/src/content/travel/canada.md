@@ -3,6 +3,8 @@ title: "Canada — Microsoft, Banking, and Family"
 description: "Alaa Badr on running Microsoft Consulting in Canada — working with BMO, TD, and Toronto Power, and raising a family from Toronto to Montreal."
 country: "Canada"
 order: 5
+image: "/images/travel/canada/toronto-skyline.jpg"
+imageCredit: 'Toronto skyline with the CN Tower from Snake Island. Photo by <a href="https://commons.wikimedia.org/wiki/File:Toronto_Skyline_from_Snake_Island,_February_28_2026_(08).jpg">Dillan Payne</a>, CC BY-SA 4.0.'
 ---
 
 Canada was my third international move with Microsoft: from Riyadh to Paris to Toronto.
